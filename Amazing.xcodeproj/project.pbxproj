@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */; };
+		F42FC24A2B9CD9AD00F4FBC5 /* APIFetchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC2492B9CD9AD00F4FBC5 /* APIFetchHandler.swift */; };
+		F42FC24C2B9CD9E100F4FBC5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */; };
 		F4B6EB6A2B998E08008E7399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6EB692B998E08008E7399 /* AppDelegate.swift */; };
 		F4B6EB6C2B998E08008E7399 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6EB6B2B998E08008E7399 /* SceneDelegate.swift */; };
 		F4B6EB6E2B998E08008E7399 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6EB6D2B998E08008E7399 /* ViewController.swift */; };
@@ -16,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F5D575083828B17D8AC18A4 /* Pods-Amazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.debug.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.debug.xcconfig"; sourceTree = "<group>"; };
+		B601ADA1139B1D33156075EA /* Pods-Amazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.release.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.release.xcconfig"; sourceTree = "<group>"; };
+		CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42FC2492B9CD9AD00F4FBC5 /* APIFetchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchHandler.swift; sourceTree = "<group>"; };
+		F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F4B6EB662B998E08008E7399 /* Amazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B6EB692B998E08008E7399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4B6EB6B2B998E08008E7399 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		168CC6EE5682250368059506 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F5D575083828B17D8AC18A4 /* Pods-Amazing.debug.xcconfig */,
+				B601ADA1139B1D33156075EA /* Pods-Amazing.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		71FDB7E1660652B9467DEFCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4B6EB5D2B998E08008E7399 = {
 			isa = PBXGroup;
 			children = (
 				F4B6EB682B998E08008E7399 /* Amazing */,
 				F4B6EB672B998E08008E7399 /* Products */,
+				168CC6EE5682250368059506 /* Pods */,
+				71FDB7E1660652B9467DEFCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +91,8 @@
 				F4B6EB722B998E0A008E7399 /* Assets.xcassets */,
 				F4B6EB742B998E0A008E7399 /* LaunchScreen.storyboard */,
 				F4B6EB772B998E0A008E7399 /* Info.plist */,
+				F42FC2492B9CD9AD00F4FBC5 /* APIFetchHandler.swift */,
+				F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */,
 			);
 			path = Amazing;
 			sourceTree = "<group>";
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4B6EB7A2B998E0A008E7399 /* Build configuration list for PBXNativeTarget "Amazing" */;
 			buildPhases = (
+				9413A7DF389E074DC0D4E26F /* [CP] Check Pods Manifest.lock */,
 				F4B6EB622B998E08008E7399 /* Sources */,
 				F4B6EB632B998E08008E7399 /* Frameworks */,
 				F4B6EB642B998E08008E7399 /* Resources */,
+				382347E6F3D6A71E74FFCA3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +165,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		382347E6F3D6A71E74FFCA3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amazing/Pods-Amazing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amazing/Pods-Amazing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amazing/Pods-Amazing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9413A7DF389E074DC0D4E26F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amazing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F4B6EB622B998E08008E7399 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +214,8 @@
 			files = (
 				F4B6EB6E2B998E08008E7399 /* ViewController.swift in Sources */,
 				F4B6EB6A2B998E08008E7399 /* AppDelegate.swift in Sources */,
+				F42FC24A2B9CD9AD00F4FBC5 /* APIFetchHandler.swift in Sources */,
+				F42FC24C2B9CD9E100F4FBC5 /* UserModel.swift in Sources */,
 				F4B6EB6C2B998E08008E7399 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,11 +363,14 @@
 		};
 		F4B6EB7B2B998E0A008E7399 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F5D575083828B17D8AC18A4 /* Pods-Amazing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQWZLKMF7W;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Amazing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,11 +393,14 @@
 		};
 		F4B6EB7C2B998E0A008E7399 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B601ADA1139B1D33156075EA /* Pods-Amazing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQWZLKMF7W;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Amazing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

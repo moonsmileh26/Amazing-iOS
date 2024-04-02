@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>font1.otf</string>
+		<string>font2.ttf</string>
+		<string>font3.otf</string>
+		<string>font4.ttf</string>
+		<string>font5.otf</string>
+		<string>BebasNeue-Regular.ttf</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

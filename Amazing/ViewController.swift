@@ -8,26 +8,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var usernameLbl: UILabel!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
-    var apiResult = UserModel()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    @IBOutlet weak var imageViewLogo: UIImageView!
+    @IBOutlet weak var imageViewIsotype: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let imageFrame = self.imageViewLogo.frame
+        let isotypeFrame = self.imageViewIsotype.frame
         
-        loader.startAnimating()
-        
-        APIFetchHandler.sharedInstance.fetchAPIData { apiData in
-            self.apiResult = apiData
-            DispatchQueue.main.async {
-                self.loader.stopAnimating()
-                self.usernameLbl.text = self.apiResult.user.uppercased()
-            }
+        UIView.animate(withDuration: 1) {
+            self.imageViewLogo.frame = CGRect(x: (self.imageViewLogo.frame.width)/2, y: (self.view.frame.height)-300, width:imageFrame.width, height: imageFrame.height)
+            self.imageViewLogo.alpha = 1.0
         }
-        // Do any additional setup after loading the view.
+        
+        UIView.animate(withDuration: 1.5, delay: 1.5,animations: {
+            self.imageViewIsotype.frame = CGRect(x: (self.imageViewIsotype.frame.minX),
+                                                 y: (self.view.frame.height)/2,
+                width:isotypeFrame.width, height: isotypeFrame.height)
+            self.imageViewIsotype.alpha = 1.0
+            
+        }, completion: { _ in
+            self.performSegue(withIdentifier: "MainViewController", sender: nil)
+        })
+        
     }
-
-
 }
 

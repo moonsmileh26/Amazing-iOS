@@ -7,10 +7,15 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ProfileViewController: UIViewController {
+    @IBOutlet weak var viewLoader: UIActivityIndicatorView!
     @IBOutlet weak var labelGreeting: UILabel!
     
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var labelUsername: UILabel!
+    
+    var apiResult = UserModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 26.0)
@@ -25,6 +30,16 @@ class SecondViewController: UIViewController {
         mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
         
         mainLabel.attributedText  = mutableAttributedString
+        
+        viewLoader.startAnimating()
+        
+        APIFetchHandler.sharedInstance.fetchAPIData { apiData in
+            self.apiResult = apiData
+            DispatchQueue.main.async {
+                self.labelUsername.text = self.apiResult.user.uppercased()
+                self.viewLoader.stopAnimating()
+            }
+        }
 
 
         // Do any additional setup after loading the view.

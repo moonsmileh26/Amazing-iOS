@@ -151,7 +151,7 @@
         <!--Profile-->
         <scene sceneID="fYx-7M-30C">
             <objects>
-                <viewController title="Profile" modalPresentationStyle="fullScreen" id="krB-Xb-bWN" customClass="SecondViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" modalPresentationStyle="fullScreen" id="krB-Xb-bWN" customClass="ProfileViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gb0-sP-Qru">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,10 +185,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_sneaker_visit" translatesAutoresizingMaskIntoConstraints="NO" id="Jvd-kP-2SV">
-                                <rect key="frame" x="64" y="338" width="92" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button_visit" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-pG-v0l">
                                 <rect key="frame" x="76" y="665" width="240" height="128"/>
                                 <constraints>
@@ -205,6 +201,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-CD-1DR">
+                                <rect key="frame" x="186" y="411" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x3q-hV-cOK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,7 +235,9 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="labelGreeting" destination="QCa-Th-k0g" id="1Fc-B1-yBv"/>
+                        <outlet property="labelUsername" destination="90d-z9-1tQ" id="nTU-lJ-ttC"/>
                         <outlet property="mainLabel" destination="T5J-O4-a4h" id="hwm-xg-BSn"/>
+                        <outlet property="viewLoader" destination="tDr-CD-1DR" id="Mla-h3-nqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAd-Wi-7Nz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,7 +271,6 @@
         <image name="baseball.fill" catalog="system" width="128" height="123"/>
         <image name="button_visit" width="402.5" height="88.5"/>
         <image name="football.fill" catalog="system" width="128" height="119"/>
-        <image name="icon_sneaker_visit" width="452" height="352"/>
         <image name="isotipo_amazing" width="156" height="162"/>
         <image name="logo_amazing" width="391" height="75"/>
         <image name="profile" width="256" height="256"/>

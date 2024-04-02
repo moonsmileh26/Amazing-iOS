@@ -11,7 +11,7 @@ import Alamofire
 class APIFetchHandler {
     static let sharedInstance = APIFetchHandler()
     func fetchAPIData(handler: @escaping(_ apiData:  UserModel) -> (Void)) {
-        let url = "http://192.168.0.15:3000/getClientById"
+        let url = "http://192.168.3.71:3000/getClientById"
         AF.request(url, method: .post, parameters: ["email": "moonsmileh@gmail.com"], encoding: URLEncoding.httpBody, headers: nil, interceptor: nil).response {
             response in
             switch response.result {

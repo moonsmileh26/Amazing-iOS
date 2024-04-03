@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */; };
+		F417545F2BBD1A9700D5F2A6 /* pigarnos.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */; };
 		F42FC24A2B9CD9AD00F4FBC5 /* APIFetchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC2492B9CD9AD00F4FBC5 /* APIFetchHandler.swift */; };
 		F42FC24C2B9CD9E100F4FBC5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */; };
 		F4B6EB6A2B998E08008E7399 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6EB692B998E08008E7399 /* AppDelegate.swift */; };
@@ -21,10 +22,6 @@
 		F4BFCE4C2BAA862100BD516E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFCE4B2BAA862100BD516E /* ProfileViewController.swift */; };
 		F4BFCE4E2BAA862B00BD516E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFCE4D2BAA862B00BD516E /* ThirdViewController.swift */; };
 		F4BFCE502BAA863B00BD516E /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFCE4F2BAA863B00BD516E /* FourthViewController.swift */; };
-		F4BFCE592BB75B2000BD516E /* font3.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE582BB75B2000BD516E /* font3.otf */; };
-		F4BFCE5B2BB75B8100BD516E /* font1.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE5A2BB75B8100BD516E /* font1.otf */; };
-		F4BFCE5E2BB75B8F00BD516E /* font4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE5C2BB75B8F00BD516E /* font4.ttf */; };
-		F4BFCE5F2BB75B8F00BD516E /* font2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE5D2BB75B8F00BD516E /* font2.ttf */; };
 		F4BFCE632BB75F1500BD516E /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +29,7 @@
 		6F5D575083828B17D8AC18A4 /* Pods-Amazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.debug.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.debug.xcconfig"; sourceTree = "<group>"; };
 		B601ADA1139B1D33156075EA /* Pods-Amazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.release.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.release.xcconfig"; sourceTree = "<group>"; };
 		CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pigarnos.ttf; sourceTree = "<group>"; };
 		F42FC2492B9CD9AD00F4FBC5 /* APIFetchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchHandler.swift; sourceTree = "<group>"; };
 		F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F4B6EB662B998E08008E7399 /* Amazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,10 +45,6 @@
 		F4BFCE4B2BAA862100BD516E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F4BFCE4D2BAA862B00BD516E /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		F4BFCE4F2BAA863B00BD516E /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
-		F4BFCE582BB75B2000BD516E /* font3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font3.otf; path = "../../../../Desktop/APP AMAZING/FONT/font3.otf"; sourceTree = "<group>"; };
-		F4BFCE5A2BB75B8100BD516E /* font1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font1.otf; path = "../../../../Desktop/APP AMAZING/FONT/bebas/font1.otf"; sourceTree = "<group>"; };
-		F4BFCE5C2BB75B8F00BD516E /* font4.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font4.ttf; path = "../../../../Desktop/APP AMAZING/FONT/font4.ttf"; sourceTree = "<group>"; };
-		F4BFCE5D2BB75B8F00BD516E /* font2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font2.ttf; path = "../../../../Desktop/APP AMAZING/FONT/font2.ttf"; sourceTree = "<group>"; };
 		F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,11 +128,8 @@
 		F4BFCE512BB6370500BD516E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */,
 				F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */,
-				F4BFCE5A2BB75B8100BD516E /* font1.otf */,
-				F4BFCE5D2BB75B8F00BD516E /* font2.ttf */,
-				F4BFCE5C2BB75B8F00BD516E /* font4.ttf */,
-				F4BFCE582BB75B2000BD516E /* font3.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -203,13 +194,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4BFCE5E2BB75B8F00BD516E /* font4.ttf in Resources */,
-				F4BFCE5F2BB75B8F00BD516E /* font2.ttf in Resources */,
-				F4BFCE592BB75B2000BD516E /* font3.otf in Resources */,
 				F4B6EB762B998E0A008E7399 /* LaunchScreen.storyboard in Resources */,
 				F4B6EB732B998E0A008E7399 /* Assets.xcassets in Resources */,
 				F4B6EB712B998E08008E7399 /* Main.storyboard in Resources */,
-				F4BFCE5B2BB75B8100BD516E /* font1.otf in Resources */,
+				F417545F2BBD1A9700D5F2A6 /* pigarnos.ttf in Resources */,
 				F4BFCE632BB75F1500BD516E /* BebasNeue-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

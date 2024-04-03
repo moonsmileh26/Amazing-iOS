@@ -23,6 +23,7 @@ class APIFetchHandler {
                     print(error.localizedDescription)
                 }
             case.failure(let error):
+                
                 print(error.localizedDescription)
                 
             }

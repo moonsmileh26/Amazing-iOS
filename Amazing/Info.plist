@@ -4,12 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>font1.otf</string>
-		<string>font2.ttf</string>
-		<string>font3.otf</string>
-		<string>font4.ttf</string>
-		<string>font5.otf</string>
 		<string>BebasNeue-Regular.ttf</string>
+		<string>pigarnos.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>

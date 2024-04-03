@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="font2.ttf">
+        <array key="pigarnos.ttf">
             <string>PIGARNOSNEUE</string>
         </array>
     </customFonts>
@@ -192,12 +192,12 @@
                                     <constraint firstAttribute="height" constant="128" id="gdo-Kp-7Kr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90d-z9-1tQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90d-z9-1tQ">
                                 <rect key="frame" x="176" y="145" width="201" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="PJi-su-knS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PIGARNOSNEUE" family="PIGARNOS NEUE" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="PIGARNOSNEUE" family="PIGARNOS NEUE" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -206,28 +206,71 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1visits" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-m0-YeI">
+                                <rect key="frame" x="24" y="295" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="QVQ-nM-xOE"/>
+                                    <constraint firstAttribute="height" constant="120" id="e7s-Nh-aIc"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_sneaker_visit" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-Ko-6jo">
+                                <rect key="frame" x="54" y="311" width="67" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="XHH-Bx-9Vb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9u-7p-l10">
+                                <rect key="frame" x="316" y="348" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psj-s2-TCQ">
+                                <rect key="frame" x="316" y="356" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VISITAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbi-x0-NSO">
+                                <rect key="frame" x="254" y="304" width="69" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x3q-hV-cOK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="m9u-7p-l10" firstAttribute="centerX" secondItem="psj-s2-TCQ" secondAttribute="centerX" id="0Qd-Bh-BD6"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="centerX" secondItem="IlX-f9-pDZ" secondAttribute="centerX" id="49j-bz-Yer"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="IlX-f9-pDZ" secondAttribute="trailing" id="6vq-Au-M9R"/>
                             <constraint firstItem="T5J-O4-a4h" firstAttribute="top" secondItem="yy9-rK-NbF" secondAttribute="bottom" constant="15" id="8Ki-mJ-pZq"/>
+                            <constraint firstItem="ibx-m0-YeI" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="24" id="Bko-sX-2KP"/>
+                            <constraint firstItem="gbi-x0-NSO" firstAttribute="top" secondItem="T5J-O4-a4h" secondAttribute="bottom" constant="4" id="CTd-pb-T8V"/>
+                            <constraint firstItem="KFT-Ko-6jo" firstAttribute="top" secondItem="T5J-O4-a4h" secondAttribute="bottom" constant="11" id="F8S-Mt-Fy8"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="70" id="MEZ-2P-4I1"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="bottom" secondItem="IlX-f9-pDZ" secondAttribute="bottom" id="Nu7-gZ-Wo0"/>
+                            <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="KFT-Ko-6jo" secondAttribute="trailing" constant="272" id="U5c-Zd-tyH"/>
                             <constraint firstItem="3fJ-pG-v0l" firstAttribute="bottom" secondItem="x3q-hV-cOK" secondAttribute="bottom" id="UxN-lC-NwP"/>
                             <constraint firstItem="90d-z9-1tQ" firstAttribute="leading" secondItem="yy9-rK-NbF" secondAttribute="trailing" constant="20" id="WcR-Hk-yxJ"/>
+                            <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="gbi-x0-NSO" secondAttribute="trailing" constant="70" id="YX9-Wy-vZE"/>
                             <constraint firstItem="IlX-f9-pDZ" firstAttribute="top" secondItem="x3q-hV-cOK" secondAttribute="top" id="aCP-Q9-PTq"/>
+                            <constraint firstItem="m9u-7p-l10" firstAttribute="centerY" secondItem="KFT-Ko-6jo" secondAttribute="centerY" id="aly-GQ-uy0"/>
                             <constraint firstItem="IlX-f9-pDZ" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" id="arH-Qd-qPI"/>
                             <constraint firstItem="T5J-O4-a4h" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="24" id="cHh-2M-0s7"/>
                             <constraint firstItem="90d-z9-1tQ" firstAttribute="top" secondItem="QCa-Th-k0g" secondAttribute="bottom" constant="28" id="fj5-yU-dsQ"/>
+                            <constraint firstItem="psj-s2-TCQ" firstAttribute="trailing" secondItem="3fJ-pG-v0l" secondAttribute="trailing" id="gie-yn-xuH"/>
                             <constraint firstItem="yy9-rK-NbF" firstAttribute="top" secondItem="x3q-hV-cOK" secondAttribute="top" constant="115" id="idI-ch-McC"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="90d-z9-1tQ" secondAttribute="trailing" constant="16" id="jPU-zE-ovW"/>
                             <constraint firstItem="3fJ-pG-v0l" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="76" id="kdc-AK-ddK"/>
+                            <constraint firstItem="ibx-m0-YeI" firstAttribute="top" secondItem="yy9-rK-NbF" secondAttribute="bottom" constant="100" id="lG6-nd-AhU"/>
                             <constraint firstItem="yy9-rK-NbF" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="76" id="qk3-z2-TTd"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="top" secondItem="x3q-hV-cOK" secondAttribute="top" constant="55" id="sIx-Eo-qUQ"/>
+                            <constraint firstItem="gbi-x0-NSO" firstAttribute="leading" secondItem="ibx-m0-YeI" secondAttribute="trailing" constant="110" id="sl2-RH-Y7j"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="3fJ-pG-v0l" secondAttribute="trailing" constant="77" id="u9u-N9-VZs"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="T5J-O4-a4h" secondAttribute="trailing" constant="24" id="wFv-y4-tQf"/>
+                            <constraint firstItem="KFT-Ko-6jo" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="54" id="z3n-X9-RUR"/>
+                            <constraint firstItem="psj-s2-TCQ" firstAttribute="top" secondItem="m9u-7p-l10" secondAttribute="bottom" constant="8" symbolic="YES" id="zjU-ZB-yBt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="baseball.fill" catalog="system" id="LrR-9E-Von">
@@ -235,7 +278,10 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="labelGreeting" destination="QCa-Th-k0g" id="1Fc-B1-yBv"/>
+                        <outlet property="labelMissingVisits" destination="psj-s2-TCQ" id="O7B-rd-xPz"/>
+                        <outlet property="labelNumberVisits" destination="m9u-7p-l10" id="SNe-1w-XSZ"/>
                         <outlet property="labelUsername" destination="90d-z9-1tQ" id="nTU-lJ-ttC"/>
+                        <outlet property="labelVisits" destination="gbi-x0-NSO" id="FSv-si-ZON"/>
                         <outlet property="mainLabel" destination="T5J-O4-a4h" id="hwm-xg-BSn"/>
                         <outlet property="viewLoader" destination="tDr-CD-1DR" id="Mla-h3-nqf"/>
                     </connections>
@@ -267,10 +313,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1visits" width="239.5" height="219"/>
         <image name="background_1" width="540" height="810"/>
         <image name="baseball.fill" catalog="system" width="128" height="123"/>
         <image name="button_visit" width="402.5" height="88.5"/>
         <image name="football.fill" catalog="system" width="128" height="119"/>
+        <image name="icon_sneaker_visit" width="226" height="176"/>
         <image name="isotipo_amazing" width="156" height="162"/>
         <image name="logo_amazing" width="391" height="75"/>
         <image name="profile" width="256" height="256"/>

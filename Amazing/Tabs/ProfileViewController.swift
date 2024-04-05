@@ -24,14 +24,15 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var labelMissingVisits: UILabel!
     
+    @IBOutlet weak var imageViewVisits: UIImageView!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 26.0)
         
-        labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 20.0)
-        labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 26.0)
-        labelMissingVisits.font = UIFont(name: "BebasNeue-Regular", size: 20.0)
-        
+        labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 22.0)
+        labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 32.0)
+        labelMissingVisits.font = UIFont(name: "BebasNeue-Regular", size: 22.0)
         
 
         let mainString = "DA CLICK EN SUMA VISITAS Y OBTEN TU SERVICIOS DE LIMPIEZA, APROXIMA AL LECTOR TU TELÉFONO CON EL CÓDIGO QR PARA REGISTRAR O CANJEAR TU SERVICIO"
@@ -49,8 +50,14 @@ class ProfileViewController: UIViewController {
         viewLoader.startAnimating()
         
         APIFetchHandler.sharedInstance.fetchAPIData { apiData in
+            
             self.apiResult = apiData
             DispatchQueue.main.async {
+                
+                let imageName = String(self.apiResult.visits) + "visits"
+                self.imageViewVisits.image =  UIImage(named:imageName)
+                
+                
                 self.labelUsername.text = self.apiResult.user.uppercased()
                 let missingVisits = 5 - self.apiResult.visits
                 self.labelNumberVisits.text = String(self.apiResult.visits)
@@ -58,21 +65,8 @@ class ProfileViewController: UIViewController {
                 self.viewLoader.stopAnimating()
             }
         }
-
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

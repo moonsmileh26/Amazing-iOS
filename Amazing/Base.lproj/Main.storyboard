@@ -50,104 +50,6 @@
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Coa-5C-ICy">
-            <objects>
-                <viewController id="bXI-eM-j0E" customClass="FourthViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qsd-wM-3Zt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="dgI-L2-nhJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="volleyball.fill" catalog="system" id="EFf-ij-lbE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5ax-3q-hC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1769" y="547"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="h8k-ye-k58">
-            <objects>
-                <viewController id="b2e-Em-y0f" customClass="ThirdViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YQ9-2B-jNL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="tvU-hO-h8K"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="soccerball" catalog="system" id="U11-TW-DaT"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VMg-NP-zaK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2827" y="324"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="n9r-BN-2qC">
-            <objects>
-                <viewController id="vT4-Nu-U4Y" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oCk-UG-lwT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="CCE-8d-LJB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="UAE-pN-6em"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WQ6-AQ-Loz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="493" y="-981"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="So0-cX-R2M">
-            <objects>
-                <viewController id="wWf-rR-SgK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gw0-6O-Pe1">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="pQt-pJ-6CU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4Mn-On-vqz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8u9-tE-1TC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="493" y="-1587"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yDX-sF-hj0">
-            <objects>
-                <tabBarController id="Hln-dX-W4g" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qj4-my-Ghd">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="wWf-rR-SgK" kind="relationship" relationship="viewControllers" id="Eow-A1-7IO"/>
-                        <segue destination="vT4-Nu-U4Y" kind="relationship" relationship="viewControllers" id="c8Y-2w-J9C"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OA5-qc-wXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-411" y="-1284"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="fxx-ai-xzr">
-            <objects>
-                <viewController id="9gk-B3-nIS" customClass="HomeViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jBN-7e-pIh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZXx-VS-eRp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="football.fill" catalog="system" id="lCa-mV-nDy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xmz-fR-u9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1769" y="-720"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="fYx-7M-30C">
             <objects>
@@ -185,7 +87,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button_visit" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-pG-v0l">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button_visit" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-pG-v0l">
                                 <rect key="frame" x="76" y="665" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="H1O-wl-B1O"/>
@@ -206,7 +108,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1visits" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-m0-YeI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0visits" translatesAutoresizingMaskIntoConstraints="NO" id="ibx-m0-YeI">
                                 <rect key="frame" x="24" y="295" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="QVQ-nM-xOE"/>
@@ -232,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VISITAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbi-x0-NSO">
-                                <rect key="frame" x="254" y="304" width="69" height="22"/>
+                                <rect key="frame" x="259" y="304" width="69" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -240,6 +142,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x3q-hV-cOK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="m9u-7p-l10" firstAttribute="centerX" secondItem="psj-s2-TCQ" secondAttribute="centerX" id="0Qd-Bh-BD6"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="centerX" secondItem="IlX-f9-pDZ" secondAttribute="centerX" id="49j-bz-Yer"/>
@@ -253,7 +156,7 @@
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="KFT-Ko-6jo" secondAttribute="trailing" constant="272" id="U5c-Zd-tyH"/>
                             <constraint firstItem="3fJ-pG-v0l" firstAttribute="bottom" secondItem="x3q-hV-cOK" secondAttribute="bottom" id="UxN-lC-NwP"/>
                             <constraint firstItem="90d-z9-1tQ" firstAttribute="leading" secondItem="yy9-rK-NbF" secondAttribute="trailing" constant="20" id="WcR-Hk-yxJ"/>
-                            <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="gbi-x0-NSO" secondAttribute="trailing" constant="70" id="YX9-Wy-vZE"/>
+                            <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="gbi-x0-NSO" secondAttribute="trailing" constant="65" id="YX9-Wy-vZE"/>
                             <constraint firstItem="IlX-f9-pDZ" firstAttribute="top" secondItem="x3q-hV-cOK" secondAttribute="top" id="aCP-Q9-PTq"/>
                             <constraint firstItem="m9u-7p-l10" firstAttribute="centerY" secondItem="KFT-Ko-6jo" secondAttribute="centerY" id="aly-GQ-uy0"/>
                             <constraint firstItem="IlX-f9-pDZ" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" id="arH-Qd-qPI"/>
@@ -266,7 +169,7 @@
                             <constraint firstItem="ibx-m0-YeI" firstAttribute="top" secondItem="yy9-rK-NbF" secondAttribute="bottom" constant="100" id="lG6-nd-AhU"/>
                             <constraint firstItem="yy9-rK-NbF" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="76" id="qk3-z2-TTd"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="top" secondItem="x3q-hV-cOK" secondAttribute="top" constant="55" id="sIx-Eo-qUQ"/>
-                            <constraint firstItem="gbi-x0-NSO" firstAttribute="leading" secondItem="ibx-m0-YeI" secondAttribute="trailing" constant="110" id="sl2-RH-Y7j"/>
+                            <constraint firstItem="gbi-x0-NSO" firstAttribute="leading" secondItem="ibx-m0-YeI" secondAttribute="trailing" constant="115" id="sl2-RH-Y7j"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="3fJ-pG-v0l" secondAttribute="trailing" constant="77" id="u9u-N9-VZs"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="T5J-O4-a4h" secondAttribute="trailing" constant="24" id="wFv-y4-tQf"/>
                             <constraint firstItem="KFT-Ko-6jo" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="54" id="z3n-X9-RUR"/>
@@ -277,6 +180,7 @@
                         <color key="badgeColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="imageViewVisits" destination="ibx-m0-YeI" id="soa-xn-1jC"/>
                         <outlet property="labelGreeting" destination="QCa-Th-k0g" id="1Fc-B1-yBv"/>
                         <outlet property="labelMissingVisits" destination="psj-s2-TCQ" id="O7B-rd-xPz"/>
                         <outlet property="labelNumberVisits" destination="m9u-7p-l10" id="SNe-1w-XSZ"/>
@@ -290,21 +194,38 @@
             </objects>
             <point key="canvasLocation" x="2826.7175572519081" y="-448.59154929577466"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="FXE-hs-eZj">
+            <objects>
+                <viewController id="36u-Ve-SVe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dqN-RO-jX0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tif-Ne-P5u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDv-rf-K3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3645" y="-456"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="bmd-xQ-lYQ">
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="2xc-Ve-C3l" customClass="TabBarViewController" customModule="Amazing" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="psK-71-Btk"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fXA-Wd-H51">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="fill" id="fXA-Wd-H51">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <color key="barTintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </variation>
                     </tabBar>
                     <connections>
                         <segue destination="krB-Xb-bWN" kind="relationship" relationship="viewControllers" id="voE-kR-sn6"/>
-                        <segue destination="b2e-Em-y0f" kind="relationship" relationship="viewControllers" id="Wcj-YM-3UV"/>
-                        <segue destination="9gk-B3-nIS" kind="relationship" relationship="viewControllers" id="t9X-1N-tgg"/>
-                        <segue destination="bXI-eM-j0E" kind="relationship" relationship="viewControllers" id="3cT-O3-QmL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkj-bf-eVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -313,17 +234,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1visits" width="239.5" height="219"/>
+        <image name="0visits" width="239.5" height="219"/>
         <image name="background_1" width="540" height="810"/>
         <image name="baseball.fill" catalog="system" width="128" height="123"/>
         <image name="button_visit" width="402.5" height="88.5"/>
-        <image name="football.fill" catalog="system" width="128" height="119"/>
         <image name="icon_sneaker_visit" width="226" height="176"/>
         <image name="isotipo_amazing" width="156" height="162"/>
         <image name="logo_amazing" width="391" height="75"/>
         <image name="profile" width="256" height="256"/>
-        <image name="soccerball" catalog="system" width="128" height="123"/>
-        <image name="volleyball.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

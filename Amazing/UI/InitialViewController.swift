@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
     
     @IBOutlet weak var imageViewLogo: UIImageView!
     @IBOutlet weak var imageViewIsotype: UIImageView!
@@ -16,12 +16,12 @@ class ViewController: UIViewController {
         let imageFrame = self.imageViewLogo.frame
         let isotypeFrame = self.imageViewIsotype.frame
         
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.9) {
             self.imageViewLogo.frame = CGRect(x: (self.imageViewLogo.frame.width)/2, y: (self.view.frame.height)-300, width:imageFrame.width, height: imageFrame.height)
             self.imageViewLogo.alpha = 1.0
         }
         
-        UIView.animate(withDuration: 1.5, delay: 1.5,animations: {
+        UIView.animate(withDuration: 1.3, delay: 1.5,animations: {
             self.imageViewIsotype.frame = CGRect(x: (self.imageViewIsotype.frame.minX),
                                                  y: (self.view.frame.height)/2,
                 width:isotypeFrame.width, height: isotypeFrame.height)

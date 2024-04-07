@@ -6,6 +6,7 @@
 	<array>
 		<string>BebasNeue-Regular.ttf</string>
 		<string>pigarnos.ttf</string>
+		<string>msyi.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>

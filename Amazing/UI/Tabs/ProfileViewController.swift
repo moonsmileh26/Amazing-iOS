@@ -78,8 +78,8 @@ class ProfileViewController: UIViewController {
     
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let qrCodeViewController: UIViewController = UIStoryboard(name: "QRCodeViewController", bundle: nil).instantiateViewController(withIdentifier: "QRCodeViewController")
-        self.present(qrCodeViewController, animated: true)
+        let qrCodeViewController = QRCodeViewController()
+        qrCodeViewController.appear(sender: self)
     }
 }
 

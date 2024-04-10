@@ -2,35 +2,46 @@
 //  QRCodeViewController.swift
 //  Amazing
 //
-//  Created by Humberto Solano on 06/04/24.
+//  Created by Humberto Solano on 09/04/24.
 //
 
-import Foundation
 import UIKit
 
 class QRCodeViewController: UIViewController {
+
+    @IBOutlet weak var viewBackground: UIView!
+    init() {
+        super.init(nibName: "QRCodeViewController", bundle: nil)
+        self.modalPresentationStyle = .overFullScreen
+    }
     
-    @IBOutlet weak var viewQRCode: UIView!
-    
-    @IBOutlet weak var imageViewQRCode: UIImageView!
-    
-    @IBOutlet weak var buttonCloseQRView: UIButton!
-    
-    
+    required init?(coder: NSCoder) {
+        fatalError("")
+    }
+                   
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func generateQRCode(from data: String) -> UIImage? {
         
-        if let data = data.data(using: .ascii) {
-            let qrCode = QRCode(inputMessage: data)
-            return BarcodeService.generateBarcode(from: qrCode)
-        }
-
-        return nil
+    }
+    private func configView() {
+        self.view.backgroundColor = .clear
+        self.viewBackground.backgroundColor = .black.withAlphaComponent(0.75)
+        self.viewBackground.alpha = 0
     }
     
-    @IBAction func closeView(_ sender: Any) {
+    @IBAction func closeQRCodeView(_ sender: Any) {
+    }
+    
+    func appear(sender: UIViewController) {
+        
+        sender.present(self, animated: false){
+            self.show()
+        }
+    }
+    
+    private func show() {
+        UIView.animate(withDuration: 1.0, delay: 0.0){
+            self.viewBackground.alpha = 1
+        }
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeViewController" customModule="Amazing" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonClose" destination="uca-ny-Hhx" id="Pxm-kl-IS9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackground" destination="nAv-ob-48G" id="RAI-b5-oXD"/>
+                <outlet property="viewContent" destination="G1Q-Tb-ASr" id="Fo6-Hm-nAv"/>
+                <outlet property="viewQRCode" destination="hKe-vJ-LoO" id="qFx-iz-XK0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-ob-48G">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1Q-Tb-ASr">
+                    <rect key="frame" x="20" y="246" width="353" height="420"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-vJ-LoO">
+                            <rect key="frame" x="0.0" y="29" width="353" height="300"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="nFq-hv-urP"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uca-ny-Hhx">
+                            <rect key="frame" x="20" y="352" width="313" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="CERRAR" cornerStyle="large">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="closeQRCodeView:" destination="-1" eventType="touchUpInside" id="OkO-or-UdG"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="hKe-vJ-LoO" firstAttribute="top" secondItem="G1Q-Tb-ASr" secondAttribute="top" constant="29" id="1JH-OR-sNA"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="top" secondItem="hKe-vJ-LoO" secondAttribute="bottom" constant="23" id="62p-w1-w8m"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="centerX" secondItem="hKe-vJ-LoO" secondAttribute="centerX" id="79e-P7-i8X"/>
+                        <constraint firstAttribute="trailing" secondItem="hKe-vJ-LoO" secondAttribute="trailing" id="9dI-Ek-ecu"/>
+                        <constraint firstAttribute="height" constant="420" id="L1h-hN-d8s"/>
+                        <constraint firstItem="hKe-vJ-LoO" firstAttribute="leading" secondItem="G1Q-Tb-ASr" secondAttribute="leading" id="qN1-vv-PLe"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="bottom" secondItem="G1Q-Tb-ASr" secondAttribute="bottomMargin" constant="-20" id="u55-Zk-DOF"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="leading" secondItem="G1Q-Tb-ASr" secondAttribute="leading" constant="20" id="x3G-xM-ppi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="nAv-ob-48G" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Sh-ce-1Ka"/>
+                <constraint firstAttribute="bottom" secondItem="nAv-ob-48G" secondAttribute="bottom" id="NQC-B7-hpS"/>
+                <constraint firstItem="G1Q-Tb-ASr" firstAttribute="centerY" secondItem="nAv-ob-48G" secondAttribute="centerY" constant="30" id="OsR-Rl-Y4j"/>
+                <constraint firstItem="G1Q-Tb-ASr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="UPU-aR-xdK"/>
+                <constraint firstItem="nAv-ob-48G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UdW-AL-0wf"/>
+                <constraint firstItem="G1Q-Tb-ASr" firstAttribute="centerX" secondItem="nAv-ob-48G" secondAttribute="centerX" id="pRk-h2-ECb"/>
+                <constraint firstItem="nAv-ob-48G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xKz-Gm-bKK"/>
+            </constraints>
+            <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
+        </view>
+    </objects>
+</document>

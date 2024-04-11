@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var imageViewVisits: UIImageView!
     @IBOutlet weak var imageViewScanButton: UIImageView!
     
+    var qrCodeImage: UIImage? = nil
     
     var apiResult = UserModel()
     
@@ -69,6 +70,8 @@ class ProfileViewController: UIViewController {
                     self.mainString = "FELICIDADES, TIENES UNA LIMPIEZA GRATIS, ACUDE A UNA DE NUESTRAS SUCURSALES PARA OBTENER TU LIMPIEZA PROFUNDA GRATIS"
                     self.mainLabel.text = self.mainString
                     self.labelMissingVisits.text = "1 Limpieza Gratis"
+                    
+                    self.qrCodeImage = generateQRCode(from: self.apiResult.email)
                 }
                 
                 self.viewLoader.stopAnimating()
@@ -79,6 +82,7 @@ class ProfileViewController: UIViewController {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let qrCodeViewController = QRCodeViewController()
+        qrCodeViewController.qrCodeImage = self.qrCodeImage
         qrCodeViewController.appear(sender: self)
     }
 }

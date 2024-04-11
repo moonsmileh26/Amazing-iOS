@@ -23,10 +23,8 @@ struct QRCode: Barcodable {
 
     let name = "CIQRCodeGenerator"
 
-    /// QR Code correction level L, M, Q, or H.
     let inputCorrectionLevel: QRCorrectionLevel = .h
 
-    /// The message to encode in the QR Code
     let inputMessage: Data
 
     var properties: [String: Any] {
@@ -35,6 +33,16 @@ struct QRCode: Barcodable {
             "inputMessage": NSData(data: inputMessage)
         ]
     }
+}
+
+func generateQRCode(from data: String) -> UIImage? {
+    
+    if let data = data.data(using: .ascii) {
+        let qrCode = QRCode(inputMessage: data)
+        return BarcodeService.generateBarcode(from: qrCode)
+    }
+
+    return nil
 }
 
 struct BarcodeService {

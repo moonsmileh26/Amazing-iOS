@@ -141,21 +141,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZ3-4x-zA7" customClass="QRCodeView" customModule="Amazing" customModuleProvider="target">
-                                <rect key="frame" x="76" y="357" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x3q-hV-cOK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="centerX" secondItem="IlX-f9-pDZ" secondAttribute="centerX" id="49j-bz-Yer"/>
-                            <constraint firstItem="eZ3-4x-zA7" firstAttribute="centerY" secondItem="Gb0-sP-Qru" secondAttribute="centerY" id="5ep-QE-Gnk"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="IlX-f9-pDZ" secondAttribute="trailing" id="6vq-Au-M9R"/>
                             <constraint firstItem="psj-s2-TCQ" firstAttribute="top" secondItem="m9u-7p-l10" secondAttribute="bottom" constant="10" id="8Bp-KY-XK2"/>
                             <constraint firstItem="T5J-O4-a4h" firstAttribute="top" secondItem="yy9-rK-NbF" secondAttribute="bottom" constant="15" id="8Ki-mJ-pZq"/>
-                            <constraint firstItem="eZ3-4x-zA7" firstAttribute="centerX" secondItem="Gb0-sP-Qru" secondAttribute="centerX" id="AAo-SN-jo2"/>
                             <constraint firstItem="m9u-7p-l10" firstAttribute="top" secondItem="gbi-x0-NSO" secondAttribute="bottom" constant="5" id="Att-vH-5hH"/>
                             <constraint firstItem="ibx-m0-YeI" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="24" id="Bko-sX-2KP"/>
                             <constraint firstItem="gbi-x0-NSO" firstAttribute="top" secondItem="T5J-O4-a4h" secondAttribute="bottom" constant="4" id="CTd-pb-T8V"/>

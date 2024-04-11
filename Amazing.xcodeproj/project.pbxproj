@@ -94,7 +94,6 @@
 				F4B6EB6D2B998E08008E7399 /* InitialViewController.swift */,
 				F4BFCE462BAA842900BD516E /* Tabs */,
 				F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */,
-				F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -129,6 +128,7 @@
 		F4112CB02BC1D90900E760F1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */,
 				F4B6EB6F2B998E08008E7399 /* Main.storyboard */,
 				F4B6EB742B998E0A008E7399 /* LaunchScreen.storyboard */,
 			);

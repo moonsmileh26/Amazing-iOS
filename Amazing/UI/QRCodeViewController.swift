@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol QRCodeDelegate {
+    func didQRCodeReaded()
+}
+
 class QRCodeViewController: UIViewController {
 
     var qrCodeImage: UIImage? = nil
@@ -16,6 +20,9 @@ class QRCodeViewController: UIViewController {
     @IBOutlet weak var viewQRCode: UIImageView!
     
     @IBOutlet weak var buttonClose: UIButton!
+    
+    var delegate: QRCodeDelegate?
+    
     init() {
         super.init(nibName: "QRCodeViewController", bundle: nil)
         self.modalPresentationStyle = .overFullScreen
@@ -60,5 +67,6 @@ class QRCodeViewController: UIViewController {
     
     @IBAction func closeQRCodeView(_ sender: Any) {
         hide()
+        delegate?.didQRCodeReaded()
     }
 }

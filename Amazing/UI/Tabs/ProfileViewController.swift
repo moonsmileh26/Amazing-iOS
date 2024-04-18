@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, QRCodeDelegate {
     
     @IBOutlet weak var viewLoader: UIActivityIndicatorView!
     @IBOutlet weak var labelGreeting: UILabel!
@@ -32,14 +32,13 @@ class ProfileViewController: UIViewController {
         labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 24.0)
         labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 32.0)
         labelMissingVisits.font = UIFont(name: "BebasNeue-Regular", size: 22.0)
-        mainLabel.font  = UIFont(name: "msyi", size: 8.0)
-        
         
         let range = (mainString as NSString).range(of: "SUMA VISITAS")
         
         let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
         
         mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 193, green: 251, blue: 2), range: range)
+        
         
         mainLabel.attributedText  = mutableAttributedString
                 
@@ -66,12 +65,14 @@ class ProfileViewController: UIViewController {
                 self.labelNumberVisits.text = String(self.apiResult.visits)
                 self.labelMissingVisits.text = "TE FALTAN " + String(missingVisits)
                 
+                self.qrCodeImage = generateQRCode(from: self.apiResult.email)
+
                 if(missingVisits == 0) {
                     self.mainString = "FELICIDADES, TIENES UNA LIMPIEZA GRATIS, ACUDE A UNA DE NUESTRAS SUCURSALES PARA OBTENER TU LIMPIEZA PROFUNDA GRATIS"
                     self.mainLabel.text = self.mainString
                     self.labelMissingVisits.text = "1 Limpieza Gratis"
-                    
-                    self.qrCodeImage = generateQRCode(from: self.apiResult.email)
+                } else {
+                    self.imageViewScanButton.isHidden = false
                 }
                 
                 self.viewLoader.stopAnimating()
@@ -82,8 +83,13 @@ class ProfileViewController: UIViewController {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let qrCodeViewController = QRCodeViewController()
+        qrCodeViewController.delegate = self
         qrCodeViewController.qrCodeImage = self.qrCodeImage
         qrCodeViewController.appear(sender: self)
+    }
+    
+    func didQRCodeReaded() {
+        getUserProfile()
     }
 }
 

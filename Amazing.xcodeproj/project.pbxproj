@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */; };
+		F4094B742BF1D20200E16D16 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4094B732BF1D20200E16D16 /* Lato-Regular.ttf */; };
 		F4112CC12BC64C3600E760F1 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */; };
 		F4112CC22BC64C3600E760F1 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */; };
 		F413B26E2BC0A437002B60FA /* msyi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F413B26D2BC0A437002B60FA /* msyi.ttf */; };
@@ -24,12 +25,21 @@
 		F4BFCE482BAA845C00BD516E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFCE472BAA845C00BD516E /* TabBarViewController.swift */; };
 		F4BFCE4C2BAA862100BD516E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BFCE4B2BAA862100BD516E /* ProfileViewController.swift */; };
 		F4BFCE632BB75F1500BD516E /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */; };
+		F4C266592BF15D9F00531E9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4C266582BF15D9F00531E9D /* GoogleService-Info.plist */; };
+		F4C2665C2BF15E5100531E9D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F4C2665B2BF15E5100531E9D /* FirebaseAnalytics */; };
+		F4C2665E2BF161D000531E9D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4C2665D2BF161D000531E9D /* FirebaseAnalyticsSwift */; };
+		F4C266602BF188C500531E9D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F4C2665F2BF188C500531E9D /* FirebaseAuth */; };
+		F4C266622BF191A500531E9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C266612BF191A500531E9D /* LoginViewController.swift */; };
+		F4C266642BF1A05200531E9D /* AmazingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C266632BF1A05200531E9D /* AmazingButton.swift */; };
+		F4C266662BF1A0F500531E9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C266652BF1A0F500531E9D /* Constants.swift */; };
+		F4C266682BF1A71500531E9D /* AmazingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C266672BF1A71500531E9D /* AmazingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6F5D575083828B17D8AC18A4 /* Pods-Amazing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.debug.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.debug.xcconfig"; sourceTree = "<group>"; };
 		B601ADA1139B1D33156075EA /* Pods-Amazing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amazing.release.xcconfig"; path = "Target Support Files/Pods-Amazing/Pods-Amazing.release.xcconfig"; sourceTree = "<group>"; };
 		CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4094B732BF1D20200E16D16 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
 		F413B26D2BC0A437002B60FA /* msyi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyi.ttf; sourceTree = "<group>"; };
@@ -48,6 +58,11 @@
 		F4BFCE472BAA845C00BD516E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F4BFCE4B2BAA862100BD516E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
+		F4C266582BF15D9F00531E9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F4C266612BF191A500531E9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F4C266632BF1A05200531E9D /* AmazingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingButton.swift; sourceTree = "<group>"; };
+		F4C266652BF1A0F500531E9D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4C266672BF1A71500531E9D /* AmazingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C2665E2BF161D000531E9D /* FirebaseAnalyticsSwift in Frameworks */,
+				F4C2665C2BF15E5100531E9D /* FirebaseAnalytics in Frameworks */,
 				042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */,
+				F4C266602BF188C500531E9D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				F4B6EB6D2B998E08008E7399 /* InitialViewController.swift */,
+				F4C266612BF191A500531E9D /* LoginViewController.swift */,
 				F4BFCE462BAA842900BD516E /* Tabs */,
 				F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */,
 			);
@@ -101,7 +120,10 @@
 		F4112CAD2BC1D74900E760F1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F4C266632BF1A05200531E9D /* AmazingButton.swift */,
 				F413B26F2BC0CF48002B60FA /* BarcodeUtils.swift */,
+				F4C266652BF1A0F500531E9D /* Constants.swift */,
+				F4C266672BF1A71500531E9D /* AmazingTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -109,6 +131,7 @@
 		F4112CAE2BC1D75D00E760F1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F4094B732BF1D20200E16D16 /* Lato-Regular.ttf */,
 				F413B26D2BC0A437002B60FA /* msyi.ttf */,
 				F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */,
 				F4BFCE622BB75F1500BD516E /* BebasNeue-Regular.ttf */,
@@ -156,6 +179,7 @@
 		F4B6EB682B998E08008E7399 /* Amazing */ = {
 			isa = PBXGroup;
 			children = (
+				F4C266582BF15D9F00531E9D /* GoogleService-Info.plist */,
 				F4B6EB772B998E0A008E7399 /* Info.plist */,
 				F4112CB02BC1D90900E760F1 /* Storyboards */,
 				F4112CAF2BC1D8FD00E760F1 /* Application */,
@@ -203,6 +227,11 @@
 			dependencies = (
 			);
 			name = Amazing;
+			packageProductDependencies = (
+				F4C2665B2BF15E5100531E9D /* FirebaseAnalytics */,
+				F4C2665D2BF161D000531E9D /* FirebaseAnalyticsSwift */,
+				F4C2665F2BF188C500531E9D /* FirebaseAuth */,
+			);
 			productName = Amazing;
 			productReference = F4B6EB662B998E08008E7399 /* Amazing.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +260,9 @@
 				Base,
 			);
 			mainGroup = F4B6EB5D2B998E08008E7399;
+			packageReferences = (
+				F4C2665A2BF15E5100531E9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F4B6EB672B998E08008E7399 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B6EB762B998E0A008E7399 /* LaunchScreen.storyboard in Resources */,
+				F4C266592BF15D9F00531E9D /* GoogleService-Info.plist in Resources */,
 				F4B6EB732B998E0A008E7399 /* Assets.xcassets in Resources */,
 				F413B26E2BC0A437002B60FA /* msyi.ttf in Resources */,
+				F4094B742BF1D20200E16D16 /* Lato-Regular.ttf in Resources */,
 				F4B6EB712B998E08008E7399 /* Main.storyboard in Resources */,
 				F417545F2BBD1A9700D5F2A6 /* pigarnos.ttf in Resources */,
 				F4112CC22BC64C3600E760F1 /* QRCodeViewController.xib in Resources */,
@@ -306,13 +340,17 @@
 			files = (
 				F4BFCE4C2BAA862100BD516E /* ProfileViewController.swift in Sources */,
 				F4B6EB6E2B998E08008E7399 /* InitialViewController.swift in Sources */,
+				F4C266682BF1A71500531E9D /* AmazingTextField.swift in Sources */,
 				F4B6EB6A2B998E08008E7399 /* AppDelegate.swift in Sources */,
 				F42FC24A2B9CD9AD00F4FBC5 /* APIFetchHandler.swift in Sources */,
 				F42FC24C2B9CD9E100F4FBC5 /* UserModel.swift in Sources */,
 				F4BFCE482BAA845C00BD516E /* TabBarViewController.swift in Sources */,
 				F4112CC12BC64C3600E760F1 /* QRCodeViewController.swift in Sources */,
 				F413B2702BC0CF48002B60FA /* BarcodeUtils.swift in Sources */,
+				F4C266622BF191A500531E9D /* LoginViewController.swift in Sources */,
+				F4C266642BF1A05200531E9D /* AmazingButton.swift in Sources */,
 				F4B6EB6C2B998E08008E7399 /* SceneDelegate.swift in Sources */,
+				F4C266662BF1A0F500531E9D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +577,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4C2665A2BF15E5100531E9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4C2665B2BF15E5100531E9D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4C2665A2BF15E5100531E9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F4C2665D2BF161D000531E9D /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4C2665A2BF15E5100531E9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		F4C2665F2BF188C500531E9D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4C2665A2BF15E5100531E9D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4B6EB5E2B998E08008E7399 /* Project object */;
 }

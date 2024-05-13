@@ -28,7 +28,7 @@ class InitialViewController: UIViewController {
             self.imageViewIsotype.alpha = 1.0
             
         }, completion: { _ in
-            self.performSegue(withIdentifier: "MainViewController", sender: nil)
+            self.show(LoginViewController(), sender: nil)
         })
         
     }

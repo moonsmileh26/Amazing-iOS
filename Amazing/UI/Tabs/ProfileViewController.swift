@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAnalyticsSwift
+import FirebaseAnalytics
 
 class ProfileViewController: UIViewController, QRCodeDelegate {
     
@@ -56,6 +58,9 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
             self.apiResult = apiData
             DispatchQueue.main.async {
                 
+                Analytics.logEvent("User Profile Screen", parameters: ["user":self.apiResult.email])
+
+                
                 let imageName = String(self.apiResult.visits) + "visits"
                 self.imageViewVisits.image =  UIImage(named:imageName)
                 
@@ -100,5 +105,17 @@ extension UIColor {
         let newBlue = CGFloat(blue)/255
         
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
+}
+
+extension UIViewController{
+    
+    public func showAlertMessage(title: String, message: String){
+        
+        let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Aceptar", style: .default)
+        
+        alertMessagePopUpBox.addAction(okButton)
+        self.present(alertMessagePopUpBox, animated: true)
     }
 }

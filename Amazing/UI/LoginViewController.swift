@@ -35,18 +35,30 @@ class LoginViewController: UIViewController {
     }
 
 }
-extension LoginViewController {
+extension LoginViewController: UITextFieldDelegate {
     
     func setupTextFields(){
-        
+        emailTextField.delegate = self
+        keyTextField.delegate = self
+        emailTextField.tag = 1
+        keyTextField.tag = 2
     }
     
     func setupKeyboardDismissal() {
             let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
             view.addGestureRecognizer(tapGesture)
-        }
+    }
 
-        @objc func dismissKeyboard() {
-            view.endEditing(true)
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let textField = self.view.viewWithTag(textField.tag + 1) as? UITextField {
+            textField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
         }
+        return false
+    }
 }

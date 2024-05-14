@@ -7,5 +7,6 @@ target 'Amazing' do
 
   # Pods for Amazing
   pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift'
 
 end

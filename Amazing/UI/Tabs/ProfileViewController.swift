@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     
     var qrCodeImage: UIImage? = nil
     
+    var user = ""
+    
     var apiResult = UserModel()
     
     var mainString = "DA CLICK EN SUMA VISITAS Y OBTEN TU SERVICIOS DE LIMPIEZA, APROXIMA AL LECTOR TU TELÉFONO CON EL CÓDIGO QR PARA REGISTRAR O CANJEAR TU SERVICIO"
@@ -53,8 +55,9 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     
     func getUserProfile() {
         viewLoader.startAnimating()
+        print("Fetching user \(user)")
 
-        APIFetchHandler.sharedInstance.fetchAPIData { apiData in
+        APIFetchHandler.sharedInstance.fetchAPIData(user: self.user) { apiData in
             self.apiResult = apiData
             DispatchQueue.main.async {
                 

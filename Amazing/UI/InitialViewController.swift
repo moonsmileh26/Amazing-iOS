@@ -28,7 +28,12 @@ class InitialViewController: UIViewController {
             self.imageViewIsotype.alpha = 1.0
             
         }, completion: { _ in
-            self.show(LoginViewController(), sender: nil)
+            
+            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+                
+                self.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: true)
+            }
         })
         
     }

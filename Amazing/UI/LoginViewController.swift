@@ -6,59 +6,67 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: AuthenticationViewController {
+        
     @IBOutlet weak var emailTextField: AmazingTextField!
-    
-    @IBOutlet weak var keyTextField: AmazingTextField!
-    
-    let backgroundImageView = UIImageView()
+    @IBOutlet weak var passwordTextField: AmazingTextField!
+    @IBOutlet weak var loginButton: AmazingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
         setupTextFields()
         setupKeyboardDismissal()
     }
     
-    func setBackground(){
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        backgroundImageView.image = UIImage(named: "background_1")
-        backgroundImageView.contentMode = .scaleAspectFill
-        view.sendSubviewToBack(backgroundImageView)
-    }
-
-}
-extension LoginViewController: UITextFieldDelegate {
-    
     func setupTextFields(){
         emailTextField.delegate = self
-        keyTextField.delegate = self
+        passwordTextField.delegate = self
         emailTextField.tag = 1
-        keyTextField.tag = 2
+        passwordTextField.tag = 2
+        loginButton.addTarget(self, action: #selector(doLogin), for: .touchDown)
     }
     
-    func setupKeyboardDismissal() {
-            let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-            view.addGestureRecognizer(tapGesture)
+    
+    
+    @objc
+    func doLogin() {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
+        if(!isValidEmail(email)){
+            
+        } else if(!isValidPassword(password)){
+            
+        } else {
+            actvityLoader.startAnimating()
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                
+                let userInfo = Auth.auth().currentUser
+                let userEmail = userInfo?.email
+                print("User  \(userEmail) signs in successfully")
+                self.actvityLoader.stopAnimating()
+                if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+                    
+                    profileVC.user = userEmail ?? "default"
+                    
+                    self.modalPresentationStyle = .fullScreen
+                    self.present(profileVC, animated: true)
+                }
+            }
+        }
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        let minPassword = 3
+        return password.count >= minPassword
     }
 
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let textField = self.view.viewWithTag(textField.tag + 1) as? UITextField {
-            textField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        return false
-    }
 }

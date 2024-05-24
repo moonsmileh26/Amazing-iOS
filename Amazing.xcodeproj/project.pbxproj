@@ -117,12 +117,10 @@
 		F4112CAC2BC1D73500E760F1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F4F628EA2C01179900E105E7 /* Auth */,
 				F4B6EB6D2B998E08008E7399 /* InitialViewController.swift */,
-				F4C266612BF191A500531E9D /* LoginViewController.swift */,
-				F435C37C2BFC653B00D1135F /* SignUpViewController.swift */,
 				F4BFCE462BAA842900BD516E /* Tabs */,
 				F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */,
-				F435C3832BFC66F400D1135F /* AuthenticationViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -217,6 +215,16 @@
 				F4112CAE2BC1D75D00E760F1 /* Fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4F628EA2C01179900E105E7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F435C3832BFC66F400D1135F /* AuthenticationViewController.swift */,
+				F4C266612BF191A500531E9D /* LoginViewController.swift */,
+				F435C37C2BFC653B00D1135F /* SignUpViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

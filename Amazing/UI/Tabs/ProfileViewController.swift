@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     @IBOutlet weak var labelMissingVisits: UILabel!
     @IBOutlet weak var imageViewVisits: UIImageView!
     @IBOutlet weak var imageViewScanButton: UIImageView!
+    let backgroundImageView = UIImageView()
     
     var qrCodeImage: UIImage? = nil
     
@@ -32,6 +33,7 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground()
         labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 26.0)
         labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 24.0)
         labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 32.0)
@@ -98,6 +100,18 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     
     func didQRCodeReaded() {
         getUserProfile()
+    }
+    
+    private func setBackground() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "background_1")
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.sendSubviewToBack(backgroundImageView)
     }
 }
 

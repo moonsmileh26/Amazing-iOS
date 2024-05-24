@@ -11,7 +11,7 @@ class AuthenticationViewController: UIViewController {
     
     let backgroundImageView = UIImageView()
     @IBOutlet weak var actvityLoader: UIActivityIndicatorView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
@@ -31,6 +31,7 @@ class AuthenticationViewController: UIViewController {
     }
     
     func showProfileView(userEmail: String) {
+        saveUserSession(userEmail: userEmail)
         if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
             
             profileVC.user = userEmail
@@ -39,15 +40,20 @@ class AuthenticationViewController: UIViewController {
             self.present(profileVC, animated: true)
         }
     }
+    
+    func saveUserSession(userEmail: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(userEmail, forKey: "user_email")
+    }
 }
 
 extension AuthenticationViewController: UITextFieldDelegate {
     
     func setupKeyboardDismissal() {
-            let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-            view.addGestureRecognizer(tapGesture)
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

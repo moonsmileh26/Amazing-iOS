@@ -24,18 +24,29 @@ class InitialViewController: UIViewController {
         UIView.animate(withDuration: 1.3, delay: 1.5,animations: {
             self.imageViewIsotype.frame = CGRect(x: (self.imageViewIsotype.frame.minX),
                                                  y: (self.view.frame.height)/2,
-                width:isotypeFrame.width, height: isotypeFrame.height)
+                                                 width:isotypeFrame.width, height: isotypeFrame.height)
             self.imageViewIsotype.alpha = 1.0
             
         }, completion: { _ in
             
-            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                
-                self.modalPresentationStyle = .fullScreen
-                self.present(loginVC, animated: true)
+            let defaults = UserDefaults.standard
+            let userEmail = defaults.string(forKey: "user_email") ?? ""
+            
+            self.modalPresentationStyle = .fullScreen
+            
+            if(userEmail.isEmpty){
+                if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    self.present(loginVC, animated: true)
+                    
+                }
+            } else {
+                if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+                    
+                    profileVC.user = userEmail
+                    self.present(profileVC, animated: true)
+                }
             }
         })
-        
     }
 }
 

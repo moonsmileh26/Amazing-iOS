@@ -15,10 +15,11 @@ class SignUpViewController: AuthenticationViewController {
     @IBOutlet weak var emailTextField: AmazingTextField!
     @IBOutlet weak var passwordTextField: AmazingTextField!
     @IBOutlet weak var signUpButton: AmazingButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupTextFields()
+        
     }
     
     private func setupTextFields() {
@@ -28,33 +29,22 @@ class SignUpViewController: AuthenticationViewController {
         nameTextField.tag = 1
         emailTextField.tag = 2
         passwordTextField.tag = 3
-        signUpButton.addTarget(self, action: #selector(signUp), for: .touchDown)
-
+        signUpButton.addTarget(self, action: #selector(signUpWithEmailPassword), for: .touchDown)
+        
     }
     
-    func signUpWithEmailPassword() async -> Bool {
+    @objc func signUpWithEmailPassword()  {
         actvityLoader.startAnimating()
-        let email = emailTextField.text!
+        let email = emailTextField.text ?? "default"
         let password = passwordTextField.text!
         var errorMessage = ""
         
-        do  {
-            try await Auth.auth().createUser(withEmail: email, password: password)
-            print("Sign Up successful")
-            return true
+        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
+            print(auth ?? "")
+            let userEmail = auth?.user.email ?? email
+            self.showProfileView(userEmail: userEmail)
         }
-        catch {
-            print(error)
-            print("Sign Up failured")
-            errorMessage = error.localizedDescription
-            return false
-      }
+        actvityLoader.stopAnimating()
     }
     
-    @objc
-    func signUp() async {
-        await signUpWithEmailPassword()
-        actvityLoader.stopAnimating()
-
-    }
 }

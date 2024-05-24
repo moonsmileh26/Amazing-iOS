@@ -15,6 +15,7 @@ class AuthenticationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+        setupKeyboardDismissal()
     }
     
     private func setBackground() {
@@ -28,7 +29,16 @@ class AuthenticationViewController: UIViewController {
         backgroundImageView.contentMode = .scaleAspectFill
         view.sendSubviewToBack(backgroundImageView)
     }
-
+    
+    func showProfileView(userEmail: String) {
+        if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+            
+            profileVC.user = userEmail
+            
+            self.modalPresentationStyle = .fullScreen
+            self.present(profileVC, animated: true)
+        }
+    }
 }
 
 extension AuthenticationViewController: UITextFieldDelegate {

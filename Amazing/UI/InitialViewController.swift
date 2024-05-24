@@ -29,7 +29,7 @@ class InitialViewController: UIViewController {
             
         }, completion: { _ in
             
-            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                 
                 self.modalPresentationStyle = .fullScreen
                 self.present(loginVC, animated: true)

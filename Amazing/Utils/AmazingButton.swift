@@ -7,22 +7,18 @@
 
 import UIKit
 
-class AmazingButton: UITextField {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupButton()
+@IBDesignable
+class AmazingButton: UIButton {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupButton()
 
+    func setup() {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 12.0
+        self.titleLabel?.font = UIFont(name: Fonts.bebasNeue, size: 20)
+        self.tintColor = Colors.amazingGreen
     }
-    
-    func setupButton() {
-        backgroundColor = Colors.amazingGreen
-        layer.cornerRadius = 12.0
-        font = UIFont(name: Fonts.bebasNeue, size: 20)
-        textColor = UIColor(red: 46, green: 46, blue: 46)
-    }
-    
 }

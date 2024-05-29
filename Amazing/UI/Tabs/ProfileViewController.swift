@@ -34,10 +34,11 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 26.0)
-        labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 24.0)
-        labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 32.0)
-        labelMissingVisits.font = UIFont(name: "BebasNeue-Regular", size: 22.0)
+        labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 30.0)
+        labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 28.0)
+        labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 44.0)
+        labelMissingVisits.font = UIFont(name: "BebasNeue-Regular", size: 24.0)
+        self.labelUsername.font = UIFont(name: Fonts.latoRegular, size: 20)
         
         let range = (mainString as NSString).range(of: "SUMA VISITAS")
         
@@ -71,8 +72,11 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
                 
                 
                 self.labelUsername.text = self.apiResult.user.uppercased()
+                self.labelUsername.textColor = .white
+                
                 let missingVisits = 5 - self.apiResult.visits
                 self.labelNumberVisits.text = String(self.apiResult.visits)
+                self.labelVisits.text = "VISITAS"
                 self.labelMissingVisits.text = "TE FALTAN " + String(missingVisits)
                 
                 self.qrCodeImage = generateQRCode(from: self.apiResult.email)

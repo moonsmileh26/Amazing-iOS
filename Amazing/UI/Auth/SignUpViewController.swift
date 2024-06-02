@@ -35,13 +35,19 @@ class SignUpViewController: AuthenticationViewController {
     
     @objc func signUpWithEmailPassword()  {
         actvityLoader.startAnimating()
+        let user = nameTextField.text ?? "Usuario"
         let email = emailTextField.text ?? "default"
         let password = passwordTextField.text!
-        var errorMessage = ""
+        
+        let client = ClientRepository()
+
         
         Auth.auth().createUser(withEmail: email, password: password) { auth, error in
             print(auth ?? "")
             let userEmail = auth?.user.email ?? email
+            let newClient = Client(user: user, visits: 0)
+            client.saveNewClient(userId: userEmail, client: newClient)
+            
             self.showProfileView(userEmail: userEmail)
         }
         actvityLoader.stopAnimating()

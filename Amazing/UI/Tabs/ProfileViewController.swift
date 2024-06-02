@@ -8,8 +8,9 @@
 import UIKit
 import FirebaseAnalyticsSwift
 import FirebaseAnalytics
+import FirebaseAuth
 
-class ProfileViewController: UIViewController, QRCodeDelegate {
+class ProfileViewController: BaseViewController, QRCodeDelegate {
     
     @IBOutlet weak var viewLoader: UIActivityIndicatorView!
     @IBOutlet weak var labelGreeting: UILabel!
@@ -20,11 +21,10 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     @IBOutlet weak var labelMissingVisits: UILabel!
     @IBOutlet weak var imageViewVisits: UIImageView!
     @IBOutlet weak var imageViewScanButton: UIImageView!
-    let backgroundImageView = UIImageView()
-    
+        
     var qrCodeImage: UIImage? = nil
     
-    var user = ""
+    var user : User?
     
     var apiResult = UserModel()
     
@@ -33,7 +33,6 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
         labelGreeting.font = UIFont(name: "BebasNeue-Regular", size: 30.0)
         labelVisits.font = UIFont(name: "BebasNeue-Regular", size: 28.0)
         labelNumberVisits.font = UIFont(name: "BebasNeue-Regular", size: 44.0)
@@ -58,40 +57,46 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
     
     func getUserProfile() {
         viewLoader.startAnimating()
-        print("Fetching user \(user)")
+        let userEmail = user?.email
+        print("Fetching user \(userEmail)")
+        let client = ClientRepository()
+        client.fetchClient(user: userEmail ?? "user@default.com", completionBlock: { [weak self] result in
+            switch result {
+            case .success(let client):
+                print("on Successful fetch")
+                self?.showClientInfo(client: client)
 
-        APIFetchHandler.sharedInstance.fetchAPIData(user: self.user) { apiData in
-            self.apiResult = apiData
-            DispatchQueue.main.async {
-                
-                Analytics.logEvent("User Profile Screen", parameters: ["user":self.apiResult.email])
-
-                
-                let imageName = String(self.apiResult.visits) + "visits"
-                self.imageViewVisits.image =  UIImage(named:imageName)
-                
-                
-                self.labelUsername.text = self.apiResult.user.uppercased()
-                self.labelUsername.textColor = .white
-                
-                let missingVisits = 5 - self.apiResult.visits
-                self.labelNumberVisits.text = String(self.apiResult.visits)
-                self.labelVisits.text = "VISITAS"
-                self.labelMissingVisits.text = "TE FALTAN " + String(missingVisits)
-                
-                self.qrCodeImage = generateQRCode(from: self.apiResult.email)
-
-                if(missingVisits == 0) {
-                    self.mainString = "FELICIDADES, TIENES UNA LIMPIEZA GRATIS, ACUDE A UNA DE NUESTRAS SUCURSALES PARA OBTENER TU LIMPIEZA PROFUNDA GRATIS"
-                    self.mainLabel.text = self.mainString
-                    self.labelMissingVisits.text = "1 Limpieza Gratis"
-                } else {
-                    self.imageViewScanButton.isHidden = false
-                }
-                
-                self.viewLoader.stopAnimating()
+            case .failure(let error):
+                print("on Failure fetch")
+                print(error.localizedDescription)
             }
+        })
+    }
+    
+    func showClientInfo(client: Client){
+        
+        let imageName = String(client.visits) + "visits"
+        self.imageViewVisits.image =  UIImage(named:imageName)
+        
+        self.labelUsername.text = client.user
+        self.labelUsername.textColor = .white
+        
+        let missingVisits = 5 - client.visits
+        self.labelNumberVisits.text = String(client.visits)
+        self.labelVisits.text = "VISITAS"
+        self.labelMissingVisits.text = "TE FALTAN " + String(missingVisits)
+        
+        self.qrCodeImage = generateQRCode(from: user?.email ?? "user@gmail.com")
+
+        if(missingVisits == 0) {
+            self.mainString = "FELICIDADES, TIENES UNA LIMPIEZA GRATIS, ACUDE A UNA DE NUESTRAS SUCURSALES PARA OBTENER TU LIMPIEZA PROFUNDA GRATIS"
+            self.mainLabel.text = self.mainString
+            self.labelMissingVisits.text = "1 Limpieza Gratis"
+        } else {
+            self.imageViewScanButton.isHidden = false
         }
+                        
+        self.viewLoader.stopAnimating()
     }
     
     
@@ -106,37 +111,20 @@ class ProfileViewController: UIViewController, QRCodeDelegate {
         getUserProfile()
     }
     
-    private func setBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        backgroundImageView.image = UIImage(named: "background_1")
-        backgroundImageView.contentMode = .scaleAspectFill
-        view.sendSubviewToBack(backgroundImageView)
-    }
-}
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        let newRed = CGFloat(red)/255
-        let newGreen = CGFloat(green)/255
-        let newBlue = CGFloat(blue)/255
+    @IBAction func logout(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "user_email")
         
-        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+        do {
+          try Auth.auth().signOut()
+        } catch {
+          print("Sign out error")
+        }
+        
+        if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.present(loginVC, animated: true)
+        }
+        
     }
-}
-
-extension UIViewController{
     
-    public func showAlertMessage(title: String, message: String){
-        
-        let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Aceptar", style: .default)
-        
-        alertMessagePopUpBox.addAction(okButton)
-        self.present(alertMessagePopUpBox, animated: true)
-    }
 }

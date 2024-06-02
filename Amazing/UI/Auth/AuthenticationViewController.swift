@@ -6,35 +6,24 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class AuthenticationViewController: UIViewController {
+class AuthenticationViewController: BaseViewController {
     
-    let backgroundImageView = UIImageView()
     @IBOutlet weak var actvityLoader: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
         setupKeyboardDismissal()
-    }
-    
-    private func setBackground() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        backgroundImageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        backgroundImageView.image = UIImage(named: "background_1")
-        backgroundImageView.contentMode = .scaleAspectFill
-        view.sendSubviewToBack(backgroundImageView)
     }
     
     func showProfileView(userEmail: String) {
         saveUserSession(userEmail: userEmail)
         if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
             
-            profileVC.user = userEmail
+            let user = Auth.auth().currentUser
+            print("Authentication VC \(String(describing: user?.uid))")
+            profileVC.user = Auth.auth().currentUser
             
             self.modalPresentationStyle = .fullScreen
             self.present(profileVC, animated: true)
@@ -67,3 +56,4 @@ extension AuthenticationViewController: UITextFieldDelegate {
         return false
     }
 }
+

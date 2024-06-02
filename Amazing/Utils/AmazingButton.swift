@@ -16,7 +16,7 @@ class AmazingButton: UIButton {
 
     func setup() {
         self.clipsToBounds = true
-        self.layer.cornerRadius = 12.0
+        self.layer.cornerRadius = 20.0
         self.titleLabel?.font = UIFont(name: Fonts.bebasNeue, size: 20)
         self.tintColor = Colors.amazingGreen
     }

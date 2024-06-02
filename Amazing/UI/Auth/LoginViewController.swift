@@ -15,6 +15,9 @@ class LoginViewController: AuthenticationViewController {
     @IBOutlet weak var loginButton: AmazingButton!
     @IBOutlet weak var registerLabel: UILabel!
     
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
@@ -30,6 +33,15 @@ class LoginViewController: AuthenticationViewController {
         let tap = UITapGestureRecognizer(target: self, action:#selector(self.tapFunction))
         registerLabel.isUserInteractionEnabled = true
         registerLabel.addGestureRecognizer(tap)
+        
+        googleButton.tintColor = UIColor(red: 19, green: 19, blue: 19)
+        googleButton.layer.cornerRadius = 0.5
+        googleButton.setImage(UIImage(named: "google_icon"), for: .normal)
+        
+        appleButton.layer.cornerRadius = 20
+        appleButton.layer.masksToBounds = true
+        appleButton.setImage(UIImage(named: "apple_icon"), for: .normal)
+        
     }
     
     @IBAction func tapFunction(sender: UITapGestureRecognizer) {
@@ -53,11 +65,32 @@ class LoginViewController: AuthenticationViewController {
             actvityLoader.startAnimating()
             Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
                 
-                let userInfo = Auth.auth().currentUser
-                let userEmail = userInfo?.email ?? "default"
-                print("User  \(userEmail) signs in successfully")
+                                
+                if let error = error as? NSError {
+                    let authError = AuthErrorCode(_nsError: error)
+                    
+                    switch authError.code {
+                    case .wrongPassword:
+                        print("Wrong password \(error)")
+                        
+                    case .invalidCredential:
+                        print("Wrong Credentials \(error)")
+                        self.showAlertMessage(message: "Verifica tus credenciales e intentalo de nuevo")
+
+                        
+                    @unknown default:
+                        print("Default error \(error)")
+                    }
+                    
+                    
+                } else {
+                    let userInfo = Auth.auth().currentUser
+                    let userEmail = userInfo?.email ?? "default"
+                    print("User \(userEmail) signs in successfully")
+                    self.showProfileView(userEmail:userEmail)
+                }
+                
                 self.actvityLoader.stopAnimating()
-                self.showProfileView(userEmail:userEmail)
             }
         }
     }

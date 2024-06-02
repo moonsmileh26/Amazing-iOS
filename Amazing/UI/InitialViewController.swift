@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class InitialViewController: UIViewController {
     
@@ -34,7 +35,7 @@ class InitialViewController: UIViewController {
             
             self.modalPresentationStyle = .fullScreen
             
-            if(userEmail.isEmpty){
+            if(userEmail.isEmpty) {
                 if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                     self.present(loginVC, animated: true)
                     
@@ -42,7 +43,7 @@ class InitialViewController: UIViewController {
             } else {
                 if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
                     
-                    profileVC.user = userEmail
+                    profileVC.user = Auth.auth().currentUser
                     self.present(profileVC, animated: true)
                 }
             }

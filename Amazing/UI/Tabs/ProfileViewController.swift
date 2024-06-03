@@ -60,7 +60,7 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
         let userEmail = user?.email
         print("Fetching user \(userEmail)")
         let client = ClientRepository()
-        client.fetchClient(user: userEmail ?? "user@default.com", completionBlock: { [weak self] result in
+        client.fetchClient(userId: userEmail ?? "user@default.com", completionBlock: { [weak self] result in
             switch result {
             case .success(let client):
                 print("on Successful fetch")

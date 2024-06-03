@@ -9,17 +9,18 @@ import UIKit
 import FirebaseAuth
 
 
-class SignUpViewController: AuthenticationViewController {
+class SignUpViewController: AuthenticationViewController, AuthDelegate {
     
     @IBOutlet weak var nameTextField: AmazingTextField!
     @IBOutlet weak var emailTextField: AmazingTextField!
     @IBOutlet weak var passwordTextField: AmazingTextField!
     @IBOutlet weak var signUpButton: AmazingButton!
     
+    var user : String = "user@default.com"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
-        
     }
     
     private func setupTextFields() {
@@ -34,23 +35,57 @@ class SignUpViewController: AuthenticationViewController {
     }
     
     @objc func signUpWithEmailPassword()  {
-        actvityLoader.startAnimating()
-        let user = nameTextField.text ?? "Usuario"
         let email = emailTextField.text ?? "default"
-        let password = passwordTextField.text!
-        
-        let client = ClientRepository()
+        let password = passwordTextField.text ?? "default"
+        user = nameTextField.text ?? "user@default.com"
 
-        
-        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
-            print(auth ?? "")
-            let userEmail = auth?.user.email ?? email
-            let newClient = Client(user: user, visits: 0)
-            client.saveNewClient(userId: userEmail, client: newClient)
-            
-            self.showProfileView(userEmail: userEmail)
+        if(user.isEmpty) {
+            self.validateUserField(user: user)
+        } else {
+            self.validateFields(email: email, password: password)
         }
+    }
+    
+    func onValidFields(email: String, password: String) {
+        actvityLoader.startAnimating()
+        singUp(email: email, password: password)
         actvityLoader.stopAnimating()
     }
     
+    func singUp(email: String, password: String) {
+        
+        actvityLoader.startAnimating()
+
+        let client = ClientRepository()
+
+        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
+            
+            if let error = error as? NSError {
+                let authError = AuthErrorCode(_nsError: error)
+                switch authError.code {
+                case .emailAlreadyInUse:
+                    self.showAlertMessage(message: "El email ya se encuentra registrado")
+                    
+                case .invalidEmail:
+                    self.showAlertMessage(message: "Revisa que sea un email valido")
+
+                default:
+                    self.showAlertMessage(message: "Algo salio mal, intentalo nuevamente")
+                    
+                }
+            } else {
+                let userEmail = auth?.user.email ?? email
+                let newClient = Client(user: self.user, visits: 0)
+                client.saveNewClient(userId: userEmail, client: newClient)
+                goToProfile()
+            }
+        }
+        
+        func goToProfile() {
+            sleep(3)
+            self.showProfileView(userEmail: email)
+            actvityLoader.stopAnimating()
+
+        }
+    }
 }

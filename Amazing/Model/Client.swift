@@ -23,13 +23,13 @@ class ClientRepository {
 
 extension ClientRepository {
     
-    func fetchClient(user: String, completionBlock: @escaping (Result<Client, Error>) -> Void) {
+    func fetchClient(userId: String, completionBlock: @escaping (Result<Client, Error>) -> Void) {
         
-        db.document("Client/\(user)").getDocument(completion: { query, error in
+        db.document("Client/\(userId)").getDocument(completion: { query, error in
             do {
                 let client = try query?.data(as: Client.self)
                 completionBlock(.success(client ?? Client()))
-                print("Fetched and decoded client \(client)")
+                print("Fetched and decoded client \(String(describing: client))")
             } catch {
                 print("Error fetching client")
                 completionBlock(.failure(error))
@@ -40,9 +40,8 @@ extension ClientRepository {
     
     }
     
-    func saveNewClient(userId: String, client: Client) {
+    func saveNewClient(userId: String, client: Client)  {
         do {
-            print("")
             try db.collection(self.collection).document(userId).setData(from: client)
         } catch {
             print(error.localizedDescription)

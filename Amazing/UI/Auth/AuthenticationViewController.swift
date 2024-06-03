@@ -8,7 +8,23 @@
 import UIKit
 import FirebaseAuth
 
+protocol AuthDelegate {
+    func onValidFields(email: String, password: String)
+}
+
 class AuthenticationViewController: BaseViewController {
+    
+    private var delegate: AuthDelegate
+    
+    init?(delegate: AuthDelegate, coder: NSCoder) {
+            self.delegate = delegate
+            super.init(coder: coder)
+        }
+
+    @available(*, unavailable, renamed: "init(delegate:coder:)")
+        required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     @IBOutlet weak var actvityLoader: UIActivityIndicatorView!
     
@@ -33,6 +49,35 @@ class AuthenticationViewController: BaseViewController {
     func saveUserSession(userEmail: String) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(userEmail, forKey: "user_email")
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailPred.evaluate(with: email)
+    }
+    
+    private func isValidPassword(_ password: String) -> Bool {
+        let minPassword = 6
+        return password.count >= minPassword
+    }
+    
+    func validateUserField(user: String) {
+        if(user.isEmpty) {
+            self.showAlertMessage(message: "Ingresa todos los campos para continuar")
+        }
+    }
+    
+    func validateFields(email: String, password: String) {
+        if(email.isEmpty || password.isEmpty) {
+            self.showAlertMessage(message: "Ingresa todos los campos para continuar")
+        } else if(!isValidEmail(email)){
+            self.showAlertMessage(message: "Revisa que sea un email valido")
+        } else if(!isValidPassword(password)){
+            self.showAlertMessage(message: "Tu contraseña debe tener al menos 6 caracteres")
+        } else {
+            delegate.onValidFields(email: email, password: password)
+        }
     }
 }
 

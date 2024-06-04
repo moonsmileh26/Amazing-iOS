@@ -42,7 +42,7 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
         if(user.isEmpty) {
             self.validateUserField(user: user)
         } else {
-            self.validateFields(email: email, password: password)
+            self.validateFields(email: email, password: password, delegate: self)
         }
     }
     

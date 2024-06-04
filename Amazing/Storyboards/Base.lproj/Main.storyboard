@@ -216,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGZ-G7-nSv" customClass="AmazingTextField" customModule="Amazing" customModuleProvider="target">
-                                <rect key="frame" x="25" y="488" width="380" height="40"/>
+                                <rect key="frame" x="25" y="498" width="380" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cOQ-46-pAj"/>
@@ -236,7 +236,7 @@
                                 <color key="color" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWG-Tl-IGu" customClass="AmazingTextField" customModule="Amazing" customModuleProvider="target">
-                                <rect key="frame" x="25" y="543" width="380" height="40"/>
+                                <rect key="frame" x="25" y="553" width="380" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hIx-fP-px3"/>
@@ -245,16 +245,13 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfP-uG-FVQ" customClass="AmazingButton" customModule="Amazing" customModuleProvider="target">
-                                <rect key="frame" x="25" y="608" width="380" height="45"/>
-                                <color key="backgroundColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="25" y="613" width="380" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bnQ-8m-FYy"/>
                                 </constraints>
                                 <color key="tintColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="INICIAR SESION">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" title="INICIA SESION" titleAlignment="center"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
@@ -271,20 +268,19 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Continua con Google" cornerStyle="capsule"/>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea una cuenta con tu email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cd-Ig-JpN">
-                                <rect key="frame" x="90" y="848" width="250" height="50"/>
+                                <rect key="frame" x="104.33333333333333" y="848" width="221.33333333333337" height="50"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JgK-sT-EYx"/>
-                                    <constraint firstAttribute="width" constant="250" id="LaS-h2-c8L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.97647058819999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce4-iQ-21H">
-                                <rect key="frame" x="25" y="708" width="380" height="45"/>
+                                <rect key="frame" x="25" y="713" width="380" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Wpf-A9-haI"/>
@@ -303,17 +299,18 @@
                             <constraint firstItem="ncT-kG-TlB" firstAttribute="trailing" secondItem="Mom-K7-caA" secondAttribute="trailing" constant="25" id="FYd-Oa-4kr"/>
                             <constraint firstItem="GP8-yH-T2k" firstAttribute="centerX" secondItem="EvB-7L-vdy" secondAttribute="centerX" id="I8y-UJ-De3"/>
                             <constraint firstItem="1cd-Ig-JpN" firstAttribute="top" secondItem="Mom-K7-caA" secondAttribute="bottom" constant="20" id="Iwh-yv-d3X"/>
+                            <constraint firstItem="sfP-uG-FVQ" firstAttribute="centerX" secondItem="EvB-7L-vdy" secondAttribute="centerX" id="JIb-NB-Tx8"/>
                             <constraint firstItem="pWG-Tl-IGu" firstAttribute="top" secondItem="jGZ-G7-nSv" secondAttribute="bottom" constant="15" id="KnM-pc-bVE"/>
                             <constraint firstItem="ce4-iQ-21H" firstAttribute="top" secondItem="sfP-uG-FVQ" secondAttribute="bottom" constant="55" id="P9c-ku-gnn"/>
                             <constraint firstItem="pWG-Tl-IGu" firstAttribute="leading" secondItem="ncT-kG-TlB" secondAttribute="leading" constant="25" id="SMB-AX-DIa"/>
                             <constraint firstItem="GP8-yH-T2k" firstAttribute="top" secondItem="ncT-kG-TlB" secondAttribute="top" id="SpT-is-97l"/>
                             <constraint firstItem="jGZ-G7-nSv" firstAttribute="leading" secondItem="ncT-kG-TlB" secondAttribute="leading" constant="25" id="Xs8-86-bAh"/>
-                            <constraint firstItem="Mom-K7-caA" firstAttribute="top" secondItem="ce4-iQ-21H" secondAttribute="bottom" constant="25" id="YLN-dX-Gqy"/>
+                            <constraint firstItem="Mom-K7-caA" firstAttribute="top" secondItem="ce4-iQ-21H" secondAttribute="bottom" constant="20" id="YLN-dX-Gqy"/>
                             <constraint firstItem="ncT-kG-TlB" firstAttribute="trailing" secondItem="sfP-uG-FVQ" secondAttribute="trailing" constant="25" id="cyT-Ry-kjk"/>
                             <constraint firstItem="XPx-7f-8qn" firstAttribute="centerX" secondItem="EvB-7L-vdy" secondAttribute="centerX" id="h15-Gc-cNB"/>
                             <constraint firstAttribute="trailing" secondItem="jGZ-G7-nSv" secondAttribute="trailing" constant="25" id="ikP-TD-pv5"/>
                             <constraint firstItem="ncT-kG-TlB" firstAttribute="trailing" secondItem="pWG-Tl-IGu" secondAttribute="trailing" constant="25" id="jdb-tw-xfx"/>
-                            <constraint firstItem="sfP-uG-FVQ" firstAttribute="top" secondItem="pWG-Tl-IGu" secondAttribute="bottom" constant="25" id="mvP-2o-IpY"/>
+                            <constraint firstItem="sfP-uG-FVQ" firstAttribute="top" secondItem="pWG-Tl-IGu" secondAttribute="bottom" constant="20" id="mvP-2o-IpY"/>
                             <constraint firstItem="sfP-uG-FVQ" firstAttribute="leading" secondItem="ncT-kG-TlB" secondAttribute="leading" constant="25" id="n3V-8d-nKF"/>
                             <constraint firstItem="ce4-iQ-21H" firstAttribute="leading" secondItem="ncT-kG-TlB" secondAttribute="leading" constant="25" id="nek-AS-yBR"/>
                             <constraint firstItem="1cd-Ig-JpN" firstAttribute="bottom" secondItem="ncT-kG-TlB" secondAttribute="bottom" id="r2r-VC-Und"/>
@@ -326,7 +323,7 @@
                         <outlet property="appleButton" destination="ce4-iQ-21H" id="P9N-Na-3aO"/>
                         <outlet property="emailTextField" destination="jGZ-G7-nSv" id="owM-3u-1ef"/>
                         <outlet property="googleButton" destination="Mom-K7-caA" id="Oct-uT-qy6"/>
-                        <outlet property="loginButton" destination="sfP-uG-FVQ" id="gnL-GG-ca6"/>
+                        <outlet property="loginButton" destination="sfP-uG-FVQ" id="lFT-Mp-dFD"/>
                         <outlet property="passwordTextField" destination="pWG-Tl-IGu" id="Uv7-vn-iVy"/>
                         <outlet property="registerLabel" destination="1cd-Ig-JpN" id="Rsj-DN-HcN"/>
                     </connections>

@@ -28,10 +28,15 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
         emailTextField.tag = 1
         passwordTextField.tag = 2
         loginButton.addTarget(self, action: #selector(attemptLogin), for: .touchDown)
+        loginButton.titleLabel?.text = "INICIA SESION"
+        loginButton.titleLabel?.textColor = UIColor(red: 30,green: 30,blue: 30)
         
         let tap = UITapGestureRecognizer(target: self, action:#selector(self.tapFunction))
         registerLabel.isUserInteractionEnabled = true
         registerLabel.addGestureRecognizer(tap)
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let underlineAttributedString = NSAttributedString(string: "Crea una cuenta con tu email", attributes: underlineAttribute)
+        registerLabel.attributedText = underlineAttributedString
         
         googleButton.tintColor = UIColor(red: 19, green: 19, blue: 19)
         googleButton.layer.cornerRadius = 0.5
@@ -56,7 +61,7 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
-        self.validateFields(email: email, password: password)
+        self.validateFields(email: email, password: password, delegate: self)
     }
     
     func onValidFields(email: String, password: String) {

@@ -14,18 +14,6 @@ protocol AuthDelegate {
 
 class AuthenticationViewController: BaseViewController {
     
-    private var delegate: AuthDelegate
-    
-    init?(delegate: AuthDelegate, coder: NSCoder) {
-            self.delegate = delegate
-            super.init(coder: coder)
-        }
-
-    @available(*, unavailable, renamed: "init(delegate:coder:)")
-        required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
-    
     @IBOutlet weak var actvityLoader: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -68,7 +56,7 @@ class AuthenticationViewController: BaseViewController {
         }
     }
     
-    func validateFields(email: String, password: String) {
+    func validateFields(email: String, password: String, delegate: AuthDelegate) {
         if(email.isEmpty || password.isEmpty) {
             self.showAlertMessage(message: "Ingresa todos los campos para continuar")
         } else if(!isValidEmail(email)){

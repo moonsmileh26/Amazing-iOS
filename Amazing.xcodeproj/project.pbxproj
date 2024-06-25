@@ -10,7 +10,7 @@
 		042F18165BCAE5354D6CB8EC /* Pods_Amazing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */; };
 		F4094B742BF1D20200E16D16 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4094B732BF1D20200E16D16 /* Lato-Regular.ttf */; };
 		F4112CC12BC64C3600E760F1 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */; };
-		F4112CC22BC64C3600E760F1 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */; };
+		F4112CC22BC64C3600E760F1 /* QRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4112CC02BC64C3600E760F1 /* QRCodeView.xib */; };
 		F413B26E2BC0A437002B60FA /* msyi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F413B26D2BC0A437002B60FA /* msyi.ttf */; };
 		F413B2702BC0CF48002B60FA /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F413B26F2BC0CF48002B60FA /* BarcodeUtils.swift */; };
 		F417545F2BBD1A9700D5F2A6 /* pigarnos.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */; };
@@ -49,7 +49,7 @@
 		CF46BAA9A7FB6F55FF29D7DB /* Pods_Amazing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amazing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4094B732BF1D20200E16D16 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F4112CBF2BC64C3600E760F1 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
+		F4112CC02BC64C3600E760F1 /* QRCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeView.xib; sourceTree = "<group>"; };
 		F413B26D2BC0A437002B60FA /* msyi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyi.ttf; sourceTree = "<group>"; };
 		F413B26F2BC0CF48002B60FA /* BarcodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeUtils.swift; sourceTree = "<group>"; };
 		F417545E2BBD1A9700D5F2A6 /* pigarnos.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pigarnos.ttf; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		F4112CB02BC1D90900E760F1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F4112CC02BC64C3600E760F1 /* QRCodeViewController.xib */,
+				F4112CC02BC64C3600E760F1 /* QRCodeView.xib */,
 				F4B6EB6F2B998E08008E7399 /* Main.storyboard */,
 				F4B6EB742B998E0A008E7399 /* LaunchScreen.storyboard */,
 			);
@@ -325,7 +325,7 @@
 				F4094B742BF1D20200E16D16 /* Lato-Regular.ttf in Resources */,
 				F4B6EB712B998E08008E7399 /* Main.storyboard in Resources */,
 				F417545F2BBD1A9700D5F2A6 /* pigarnos.ttf in Resources */,
-				F4112CC22BC64C3600E760F1 /* QRCodeViewController.xib in Resources */,
+				F4112CC22BC64C3600E760F1 /* QRCodeView.xib in Resources */,
 				F4BFCE632BB75F1500BD516E /* BebasNeue-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

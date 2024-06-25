@@ -24,7 +24,7 @@ class QRCodeViewController: UIViewController {
     var delegate: QRCodeDelegate?
     
     init() {
-        super.init(nibName: "QRCodeViewController", bundle: nil)
+        super.init(nibName: "QRCodeView", bundle: nil)
         self.modalPresentationStyle = .overFullScreen
     }
     
@@ -39,12 +39,16 @@ class QRCodeViewController: UIViewController {
         
     }
     private func configView() {
-        self.buttonClose.titleLabel?.font = UIFont(name: "BebasNeue-Regular", size: 24.0)
-        self.view.backgroundColor = .clear
-        self.viewBackground.backgroundColor = .black.withAlphaComponent(0.75)
-        self.viewBackground.alpha = 0
-        self.viewContent.alpha = 0
-        self.viewContent.layer.cornerRadius = 12
+        
+        buttonClose.setTitle("CERRAR", for: .normal)
+        buttonClose.setTitleColor(.white, for: .normal)
+        
+        view.backgroundColor = .clear
+        viewBackground.backgroundColor = .black.withAlphaComponent(0.75)
+        viewBackground.alpha = 0
+        viewContent.alpha = 0
+        viewContent.layer.cornerRadius = 12
+
     }
     
     func appear(sender: UIViewController) {

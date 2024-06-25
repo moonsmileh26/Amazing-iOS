@@ -35,11 +35,11 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uca-ny-Hhx">
-                            <rect key="frame" x="20" y="352" width="313" height="40"/>
+                            <rect key="frame" x="20" y="352" width="313" height="45"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="CERRAR" cornerStyle="large">
+                            <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
                                 <backgroundConfiguration key="background">
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </backgroundConfiguration>
@@ -56,8 +56,10 @@
                         <constraint firstItem="uca-ny-Hhx" firstAttribute="centerX" secondItem="hKe-vJ-LoO" secondAttribute="centerX" id="79e-P7-i8X"/>
                         <constraint firstAttribute="trailing" secondItem="hKe-vJ-LoO" secondAttribute="trailing" id="9dI-Ek-ecu"/>
                         <constraint firstAttribute="height" constant="420" id="L1h-hN-d8s"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="centerX" secondItem="G1Q-Tb-ASr" secondAttribute="centerX" id="R3N-ur-EiP"/>
+                        <constraint firstAttribute="trailing" secondItem="uca-ny-Hhx" secondAttribute="trailing" constant="20" id="odr-uG-7Ye"/>
                         <constraint firstItem="hKe-vJ-LoO" firstAttribute="leading" secondItem="G1Q-Tb-ASr" secondAttribute="leading" id="qN1-vv-PLe"/>
-                        <constraint firstItem="uca-ny-Hhx" firstAttribute="bottom" secondItem="G1Q-Tb-ASr" secondAttribute="bottomMargin" constant="-20" id="u55-Zk-DOF"/>
+                        <constraint firstItem="uca-ny-Hhx" firstAttribute="bottom" secondItem="G1Q-Tb-ASr" secondAttribute="bottomMargin" constant="-15" id="u55-Zk-DOF"/>
                         <constraint firstItem="uca-ny-Hhx" firstAttribute="leading" secondItem="G1Q-Tb-ASr" secondAttribute="leading" constant="20" id="x3G-xM-ppi"/>
                     </constraints>
                 </view>

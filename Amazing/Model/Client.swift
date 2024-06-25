@@ -13,11 +13,11 @@ import FirebaseFirestoreSwift
 struct Client: Codable {
     var user: String = "user@default.com"
     var visits: Int = 0
+    var imageUrl: String? = ""
 }
 
 class ClientRepository {
     let collection = "Client"
-
     var db = Firestore.firestore()
 }
 

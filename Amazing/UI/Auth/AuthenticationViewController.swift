@@ -23,21 +23,31 @@ class AuthenticationViewController: BaseViewController {
     
     func showProfileView(userEmail: String) {
         saveUserSession(userEmail: userEmail)
+
+        sleep(3)
         if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
             
-            let user = Auth.auth().currentUser
-            print("Authentication VC \(String(describing: user?.uid))")
-            profileVC.user = Auth.auth().currentUser
+            var user = Auth.auth().currentUser
+            if(user != nil) {
+                profileVC.user = Auth.auth().currentUser
+            } else {
+                profileVC.userEmail = userEmail
+            }
+            
+            print("Authentication VC \(String(describing: user?.uid ?? userEmail))")
             
             self.modalPresentationStyle = .fullScreen
             self.present(profileVC, animated: true)
         }
+        actvityLoader.stopAnimating()
     }
     
     func saveUserSession(userEmail: String) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(userEmail, forKey: "user_email")
     }
+    
+    
     
     private func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

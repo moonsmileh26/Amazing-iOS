@@ -21,10 +21,12 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
     @IBOutlet weak var labelMissingVisits: UILabel!
     @IBOutlet weak var imageViewVisits: UIImageView!
     @IBOutlet weak var imageViewScanButton: UIImageView!
+    @IBOutlet weak var imageViewProfile: UIImageView!
         
     var qrCodeImage: UIImage? = nil
     
     var user : User?
+    var userEmail : String?
     
     var apiResult = UserModel()
     
@@ -57,10 +59,10 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
     
     func getUserProfile() {
         viewLoader.startAnimating()
-        let userEmail = user?.email
-        print("Fetching user \(userEmail)")
+        let email = user?.email ?? userEmail
+        print("Fetching user \(email)")
         let client = ClientRepository()
-        client.fetchClient(userId: userEmail ?? "user@default.com", completionBlock: { [weak self] result in
+        client.fetchClient(userId: email ?? "user@default.com", completionBlock: { [weak self] result in
             switch result {
             case .success(let client):
                 print("on Successful fetch")
@@ -86,6 +88,14 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
         self.labelVisits.text = "VISITAS"
         self.labelMissingVisits.text = "TE FALTAN " + String(missingVisits)
         
+        
+        if let imageUrl = client.imageUrl {
+            let url = URL(string: imageUrl)
+            if url != nil {
+                downloadImage(from: url!)
+            }
+        }
+        
         self.qrCodeImage = generateQRCode(from: user?.email ?? "user@gmail.com")
 
         if(missingVisits == 0) {
@@ -97,6 +107,23 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
         }
                         
         self.viewLoader.stopAnimating()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            // always update the UI from the main thread
+            DispatchQueue.main.async() { [weak self] in
+                self?.imageViewProfile.image = UIImage(data: data)
+            }
+        }
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
     

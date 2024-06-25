@@ -16,7 +16,7 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
     @IBOutlet weak var passwordTextField: AmazingTextField!
     @IBOutlet weak var signUpButton: AmazingButton!
     
-    var user : String = "user@default.com"
+    var user : String = "Amazing User"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +35,9 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
     }
     
     @objc func signUpWithEmailPassword()  {
-        let email = emailTextField.text ?? "default"
+        let email = emailTextField.text ?? "user@default"
         let password = passwordTextField.text ?? "default"
-        user = nameTextField.text ?? "user@default.com"
+        user = nameTextField.text ?? "Amazing User"
 
         if(user.isEmpty) {
             self.validateUserField(user: user)
@@ -77,15 +77,11 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
                 let userEmail = auth?.user.email ?? email
                 let newClient = Client(user: self.user, visits: 0)
                 client.saveNewClient(userId: userEmail, client: newClient)
-                goToProfile()
+                
+                self.showProfileView(userEmail: userEmail)
             }
         }
-        
-        func goToProfile() {
-            sleep(3)
-            self.showProfileView(userEmail: email)
-            actvityLoader.stopAnimating()
-
-        }
     }
+    
+    
 }

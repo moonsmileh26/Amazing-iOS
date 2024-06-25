@@ -43,7 +43,13 @@ class InitialViewController: UIViewController {
             } else {
                 if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
                     
-                    profileVC.user = Auth.auth().currentUser
+                    var user = Auth.auth().currentUser
+                    if(user != nil) {
+                        profileVC.user = user
+                    } else {
+                        profileVC.userEmail = userEmail
+                    }
+                    
                     self.present(profileVC, animated: true)
                 }
             }

@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="yy9-rK-NbF">
-                                <rect key="frame" x="100" y="140" width="80" height="80"/>
+                                <rect key="frame" x="80" y="140" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="9WK-Mv-iSr"/>
                                     <constraint firstAttribute="height" constant="80" id="VEE-fL-YRl"/>
@@ -105,7 +105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-V3-i4o">
-                                <rect key="frame" x="200" y="167.66666666666666" width="210" height="25"/>
+                                <rect key="frame" x="180" y="167.66666666666666" width="230" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="BAT-ZZ-yhT"/>
                                 </constraints>
@@ -141,14 +141,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqp-cu-k0O">
-                                <rect key="frame" x="327" y="50" width="78" height="35"/>
+                                <rect key="frame" x="325" y="50" width="90" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="foi-Mn-E3H"/>
-                                    <constraint firstAttribute="width" constant="78" id="l5u-Ag-Psw"/>
+                                    <constraint firstAttribute="width" constant="90" id="l5u-Ag-Psw"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cerrar Sesión"/>
                                 <connections>
                                     <action selector="logout:" destination="krB-Xb-bWN" eventType="touchUpInside" id="Hqm-jZ-pwj"/>
                                 </connections>
@@ -172,13 +172,13 @@
                             <constraint firstItem="fqp-cu-k0O" firstAttribute="top" secondItem="Gb0-sP-Qru" secondAttribute="top" constant="50" id="Pzy-wm-hCH"/>
                             <constraint firstItem="x3q-hV-cOK" firstAttribute="trailing" secondItem="nmH-V3-i4o" secondAttribute="trailing" constant="20" id="VVZ-MO-bPz"/>
                             <constraint firstItem="m9u-7p-l10" firstAttribute="centerX" secondItem="gbi-x0-NSO" secondAttribute="centerX" id="XML-Nq-9j7"/>
-                            <constraint firstItem="yy9-rK-NbF" firstAttribute="leading" secondItem="Gb0-sP-Qru" secondAttribute="leadingMargin" constant="80" id="a7O-5A-XlX"/>
+                            <constraint firstItem="yy9-rK-NbF" firstAttribute="leading" secondItem="Gb0-sP-Qru" secondAttribute="leadingMargin" constant="60" id="a7O-5A-XlX"/>
                             <constraint firstItem="nmH-V3-i4o" firstAttribute="centerY" secondItem="yy9-rK-NbF" secondAttribute="centerY" id="dAv-qY-3CA"/>
                             <constraint firstItem="yy9-rK-NbF" firstAttribute="top" secondItem="QCa-Th-k0g" secondAttribute="bottom" constant="20" id="fX9-fT-n5T"/>
                             <constraint firstItem="KFT-Ko-6jo" firstAttribute="leading" secondItem="Gb0-sP-Qru" secondAttribute="leadingMargin" constant="43" id="fkX-6T-bxd"/>
                             <constraint firstItem="3fJ-pG-v0l" firstAttribute="leading" secondItem="Gb0-sP-Qru" secondAttribute="leadingMargin" constant="40" id="gId-ho-QZw"/>
                             <constraint firstItem="psj-s2-TCQ" firstAttribute="centerX" secondItem="gbi-x0-NSO" secondAttribute="centerX" id="gvc-CI-KeK"/>
-                            <constraint firstAttribute="trailing" secondItem="fqp-cu-k0O" secondAttribute="trailing" constant="25" id="i2O-wu-uhj"/>
+                            <constraint firstAttribute="trailing" secondItem="fqp-cu-k0O" secondAttribute="trailing" constant="15" id="i2O-wu-uhj"/>
                             <constraint firstItem="QCa-Th-k0g" firstAttribute="centerX" secondItem="Gb0-sP-Qru" secondAttribute="centerX" id="pSy-ug-8pD"/>
                             <constraint firstItem="T5J-O4-a4h" firstAttribute="top" secondItem="yy9-rK-NbF" secondAttribute="bottom" constant="30" id="prS-Nj-bfc"/>
                             <constraint firstItem="T5J-O4-a4h" firstAttribute="leading" secondItem="x3q-hV-cOK" secondAttribute="leading" constant="25" id="r3i-GE-dqM"/>
@@ -192,6 +192,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="r8q-1U-cfG"/>
                     <connections>
+                        <outlet property="imageViewProfile" destination="yy9-rK-NbF" id="Va6-1Z-kQ1"/>
                         <outlet property="imageViewScanButton" destination="3fJ-pG-v0l" id="iDo-11-VtL"/>
                         <outlet property="imageViewVisits" destination="ibx-m0-YeI" id="soa-xn-1jC"/>
                         <outlet property="labelGreeting" destination="QCa-Th-k0g" id="1Fc-B1-yBv"/>
@@ -260,12 +261,18 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mom-K7-caA">
                                 <rect key="frame" x="25" y="778" width="380" height="50"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xrj-9j-ssc"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continua con Google" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="googleSignIn:" destination="dZZ-Gf-JVY" eventType="touchUpInside" id="WZ9-uW-V9x"/>
+                                </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea una cuenta con tu email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cd-Ig-JpN">
                                 <rect key="frame" x="104.33333333333333" y="848" width="221.33333333333337" height="50"/>

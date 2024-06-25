@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewController: AuthenticationViewController, AuthDelegate {
     
@@ -67,8 +68,6 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
     func onValidFields(email: String, password: String) {
         actvityLoader.startAnimating()
         doLogin(email: email, password: password)
-        actvityLoader.stopAnimating()
-
     }
     
     func doLogin(email: String, password: String) {
@@ -93,6 +92,53 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             }
             
         }
+    }
+    @IBAction func googleSignIn(_ sender: Any) {
+        actvityLoader.startAnimating()
+
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) {
+            signInResult, error in
+            guard error == nil else {
+                self.actvityLoader.stopAnimating()
+                return
+            }
+            guard signInResult != nil else {
+                self.actvityLoader.stopAnimating()
+                return
+            }
+            let user = signInResult?.user
+            let email = user?.profile?.email ?? ""
+            let userName = user?.profile?.givenName ?? "Amazing User"
+            let imageProfile = user?.profile?.imageURL(withDimension: 320)?.absoluteString ?? ""
+            
+            if(!self.isUserRegistered(email: email)) {
+                self.handlenNewUserSignIn(userName: userName, email: email, imageUrl: imageProfile)
+            }
+            self.showProfileView(userEmail:email)
+        }
+    }
+    
+    func handlenNewUserSignIn(userName: String, email: String, imageUrl: String) {
+        let client = ClientRepository()
+        let newClient = Client(user: userName , visits: 0, imageUrl: imageUrl)
+        client.saveNewClient(userId: email, client: newClient)
+            
+    }
+    
+    func isUserRegistered(email: String) -> Bool {
+        let client = ClientRepository()
+
+        var isUserRegistered = false
+        client.fetchClient(userId: email, completionBlock: { result in
+            switch result {
+            case .success(let client):
+                isUserRegistered = true
+            case .failure(let error):
+                print(error.localizedDescription)
+                isUserRegistered = false
+            }
+        })
+        return isUserRegistered
     }
     
     

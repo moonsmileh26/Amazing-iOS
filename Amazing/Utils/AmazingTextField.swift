@@ -20,8 +20,8 @@ class AmazingTextField: UITextField {
     }
     private func setUpField() {
             tintColor             = .white
-            textColor             = UIColor(red: 46, green: 46, blue:46)
-        font                  = UIFont(name: Fonts.latoRegular, size: 18)
+            textColor             = UIColor(red: 46, green: 46, blue: 46)
+            font                  = UIFont(name: Fonts.latoRegular, size: 18)
             backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
             autocorrectionType    = .no
             layer.cornerRadius    = 10.0
@@ -30,7 +30,7 @@ class AmazingTextField: UITextField {
             let placeholder       = self.placeholder != nil ? self.placeholder! : ""
         let placeholderFont   = UIFont(name: Fonts.latoRegular, size: 18)!
             attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
-                                                        [NSAttributedString.Key.foregroundColor: UIColor.systemGray2,
+                                                        [NSAttributedString.Key.foregroundColor: UIColor(red: 41, green: 41, blue: 41),
                  NSAttributedString.Key.font: placeholderFont])
         
         

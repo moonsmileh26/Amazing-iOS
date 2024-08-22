@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1061933650232-slroul6tna8bkh63fv7fgd8248rs372s.apps.googleusercontent.com</string>
+	<string>558698868458-01ronmnss7fthp7jh32tal5glm13vhkg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1061933650232-slroul6tna8bkh63fv7fgd8248rs372s</string>
+	<string>com.googleusercontent.apps.558698868458-01ronmnss7fthp7jh32tal5glm13vhkg</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBlM2-mJN5TY8WC5x51u3r93Q9J6pDH1Vc</string>
+	<string>AIzaSyAl6rOVHxyK8wFLtHvnFVeTX76N-HBZ2-g</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1061933650232</string>
+	<string>558698868458</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>mx.amazingconcepts.Amazing</string>
+	<string>mx.amazingconcepts</string>
 	<key>PROJECT_ID</key>
-	<string>amazing-b4320</string>
+	<string>amazingconcepts-85e47</string>
 	<key>STORAGE_BUCKET</key>
-	<string>amazing-b4320.appspot.com</string>
+	<string>amazingconcepts-85e47.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1061933650232:ios:5b846a3657c1a0824d31cd</string>
+	<string>1:558698868458:ios:c33b98e8d06a99319ef193</string>
 </dict>
 </plist>

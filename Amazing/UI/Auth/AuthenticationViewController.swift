@@ -10,6 +10,9 @@ import FirebaseAuth
 
 protocol AuthDelegate {
     func onValidFields(email: String, password: String)
+    func onSuccessSignUp(email: String)
+    func onFailedSignUp(message: String)
+    
 }
 
 class AuthenticationViewController: BaseViewController {
@@ -75,6 +78,36 @@ class AuthenticationViewController: BaseViewController {
             self.showAlertMessage(message: "Tu contraseña debe tener al menos 6 caracteres")
         } else {
             delegate.onValidFields(email: email, password: password)
+        }
+    }
+    
+    func singUp(email: String, password: String, delegate: AuthDelegate) {
+        
+        actvityLoader.startAnimating()
+
+        let client = ClientRepository()
+
+        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
+            
+            if let error = error as? NSError {
+                let authError = AuthErrorCode(_nsError: error)
+                var errorMessage = ""
+                switch authError.code {
+                case .emailAlreadyInUse:
+                    errorMessage = "El email ya se encuentra registrado"
+                    
+                case .invalidEmail:
+                    errorMessage = "Revisa que sea un email valido"
+
+                default:
+                    errorMessage = "Algo salio mal, intentalo nuevamente"
+                    
+                }
+                delegate.onFailedSignUp(message: errorMessage)
+                
+            } else {
+                delegate.onSuccessSignUp(email: email)
+            }
         }
     }
 }

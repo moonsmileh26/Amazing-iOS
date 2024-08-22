@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import AuthenticationServices
 
 class LoginViewController: AuthenticationViewController, AuthDelegate {
     
@@ -17,6 +18,8 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var appleButton: UIButton!
+    
+    var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,10 +68,6 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
         self.validateFields(email: email, password: password, delegate: self)
     }
     
-    func onValidFields(email: String, password: String) {
-        actvityLoader.startAnimating()
-        doLogin(email: email, password: password)
-    }
     
     func doLogin(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
@@ -93,6 +92,19 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             
         }
     }
+    
+    @objc func appleSignIn() {
+        actvityLoader.startAnimating()
+        
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+    
     @IBAction func googleSignIn(_ sender: Any) {
         actvityLoader.startAnimating()
 
@@ -111,14 +123,12 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             let userName = user?.profile?.givenName ?? "Amazing User"
             let imageProfile = user?.profile?.imageURL(withDimension: 320)?.absoluteString ?? ""
             
-            if(!self.isUserRegistered(email: email)) {
-                self.handlenNewUserSignIn(userName: userName, email: email, imageUrl: imageProfile)
-            }
-            self.showProfileView(userEmail:email)
+            self.username = userName
+            self.singUp(email: email, password: "", delegate: self)
         }
     }
     
-    func handlenNewUserSignIn(userName: String, email: String, imageUrl: String) {
+    func handleNewUserSignIn(userName: String, email: String, imageUrl: String) {
         let client = ClientRepository()
         let newClient = Client(user: userName , visits: 0, imageUrl: imageUrl)
         client.saveNewClient(userId: email, client: newClient)
@@ -149,5 +159,54 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             self.present(loginVC, animated: true)
         }
     }
+}
+
+// AuthDelegate
+extension LoginViewController {
+    func onValidFields(email: String, password: String) {
+        actvityLoader.startAnimating()
+        doLogin(email: email, password: password)
+    }
+    
+    func onSuccessSignUp(email: String) {
+        if(!self.isUserRegistered(email: email)) {
+            self.handleNewUserSignIn(userName: self.username, email: email, imageUrl: "")
+        }
+        
+        self.showProfileView(userEmail:email)
+        
+    }
+    
+    func onFailedSignUp(message: String) {
+        actvityLoader.stopAnimating()
+        self.showAlertMessage(message: message)
+    }
+    
+}
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: any Error) {
+        print("Login Failure!")
+    }
+    
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let credentials as ASAuthorizationAppleIDCredential:
+            let firstName = credentials.fullName?.givenName
+            let email = credentials.email
+            break
+        default:
+            break
+        }
+    }
+    
     
 }

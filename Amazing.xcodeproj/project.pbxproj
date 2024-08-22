@@ -57,6 +57,7 @@
 		F42FC24B2B9CD9E100F4FBC5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F435C37C2BFC653B00D1135F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F435C3832BFC66F400D1135F /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F43B67342C2B8E3E005D6A7F /* Amazing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amazing.entitlements; sourceTree = "<group>"; };
 		F4B6EB662B998E08008E7399 /* Amazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B6EB692B998E08008E7399 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4B6EB6B2B998E08008E7399 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		F4B6EB682B998E08008E7399 /* Amazing */ = {
 			isa = PBXGroup;
 			children = (
+				F43B67342C2B8E3E005D6A7F /* Amazing.entitlements */,
 				F4F628ED2C07EE1100E105E7 /* Model */,
 				F4C266582BF15D9F00531E9D /* GoogleService-Info.plist */,
 				F4B6EB772B998E0A008E7399 /* Info.plist */,
@@ -546,12 +548,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Amazing/Amazing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JQWZLKMF7W;
+				DEVELOPMENT_TEAM = SDFX6B568A;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Amazing/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Amazing;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -562,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mx.amazingconcepts.Amazing;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.amazingconcepts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -576,12 +580,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Amazing/Amazing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JQWZLKMF7W;
+				DEVELOPMENT_TEAM = SDFX6B568A;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Amazing/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Amazing;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -592,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mx.amazingconcepts.Amazing;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.amazingconcepts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -48,40 +48,24 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
     
     func onValidFields(email: String, password: String) {
         actvityLoader.startAnimating()
-        singUp(email: email, password: password)
+        singUp(email: email, password: password, delegate: self)
         actvityLoader.stopAnimating()
     }
     
-    func singUp(email: String, password: String) {
-        
-        actvityLoader.startAnimating()
-
+    func onSuccessSignUp(email: String) {
         let client = ClientRepository()
 
-        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
-            
-            if let error = error as? NSError {
-                let authError = AuthErrorCode(_nsError: error)
-                switch authError.code {
-                case .emailAlreadyInUse:
-                    self.showAlertMessage(message: "El email ya se encuentra registrado")
-                    
-                case .invalidEmail:
-                    self.showAlertMessage(message: "Revisa que sea un email valido")
-
-                default:
-                    self.showAlertMessage(message: "Algo salio mal, intentalo nuevamente")
-                    
-                }
-            } else {
-                let userEmail = auth?.user.email ?? email
-                let newClient = Client(user: self.user, visits: 0)
-                client.saveNewClient(userId: userEmail, client: newClient)
-                
-                self.showProfileView(userEmail: userEmail)
-            }
-        }
+        let userEmail = email
+        let newClient = Client(user: self.user, visits: 0)
+        client.saveNewClient(userId: email, client: newClient)
+        
+        actvityLoader.stopAnimating()
+        self.showProfileView(userEmail: userEmail)
     }
     
-    
+    func onFailedSignUp(message: String) {
+        actvityLoader.stopAnimating()
+        self.showAlertMessage(message: message)
+    }
+
 }

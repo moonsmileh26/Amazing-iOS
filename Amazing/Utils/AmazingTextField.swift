@@ -30,7 +30,7 @@ class AmazingTextField: UITextField {
             let placeholder       = self.placeholder != nil ? self.placeholder! : ""
         let placeholderFont   = UIFont(name: Fonts.latoRegular, size: 18)!
             attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
-                                                        [NSAttributedString.Key.foregroundColor: UIColor(red: 41, green: 41, blue: 41),
+                                                        [NSAttributedString.Key.foregroundColor: UIColor(red: 69, green: 69, blue: 69),
                  NSAttributedString.Key.font: placeholderFont])
         
         

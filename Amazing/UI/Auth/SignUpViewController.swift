@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import os
 
 
 class SignUpViewController: AuthenticationViewController, AuthDelegate {
@@ -15,9 +16,7 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
     @IBOutlet weak var emailTextField: AmazingTextField!
     @IBOutlet weak var passwordTextField: AmazingTextField!
     @IBOutlet weak var signUpButton: AmazingButton!
-    
-    var user : String = "Amazing User"
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
@@ -37,35 +36,36 @@ class SignUpViewController: AuthenticationViewController, AuthDelegate {
     @objc func signUpWithEmailPassword()  {
         let email = emailTextField.text ?? "user@default"
         let password = passwordTextField.text ?? "default"
-        user = nameTextField.text ?? "Amazing User"
-
-        if(user.isEmpty) {
-            self.validateUserField(user: user)
-        } else {
-            self.validateFields(email: email, password: password, delegate: self)
-        }
+        let user = nameTextField.text ?? "Usuario Amazing"
+        self.validateFields(user: user, email: email, password: password, delegate: self)
+        
     }
     
-    func onValidFields(email: String, password: String) {
+    func onValidFields(user: String, email: String, password: String) {
         actvityLoader.startAnimating()
-        singUp(email: email, password: password, delegate: self)
+        singUp(user: user, email: email, password: password, imageUrl: "", delegate: self)
         actvityLoader.stopAnimating()
     }
-    
-    func onSuccessSignUp(email: String) {
-        let client = ClientRepository()
 
-        let userEmail = email
-        let newClient = Client(user: self.user, visits: 0)
-        client.saveNewClient(userId: email, client: newClient)
+    
+    func onSuccessSignUp(user: String, email: String, imageUrl: String) {
+        let repository = ClientRepository()
+
+        let client = Client(user: user, visits: 0)
+        repository.saveNewClient(userId: email, client: client)
         
         actvityLoader.stopAnimating()
-        self.showProfileView(userEmail: userEmail)
+        self.showProfileView(userEmail: email)
+    }
+    
+    func onUserRegistered(email: String) {
+        self.showProfileView(userEmail: email)
     }
     
     func onFailedSignUp(message: String) {
         actvityLoader.stopAnimating()
         self.showAlertMessage(message: message)
+        os_log("onFailedSignUp: %@", log: log, type: .error, message)
     }
 
 }

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 import AuthenticationServices
+import os
 
 class LoginViewController: AuthenticationViewController, AuthDelegate {
     
@@ -65,7 +66,7 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
-        self.validateFields(email: email, password: password, delegate: self)
+        self.validateFields(user: "", email: email, password: password, delegate: self)
     }
     
     
@@ -82,6 +83,8 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
                     
                 @unknown default:
                     self.showAlertMessage(message: "Algo salio mal, intentalo nuevamente")
+                    os_log("doLogin: %@", log: self.log, type: .error, authError.localizedDescription)
+
                 }
             } else {
                 let userInfo = Auth.auth().currentUser
@@ -120,19 +123,19 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             }
             let user = signInResult?.user
             let email = user?.profile?.email ?? ""
-            let userName = user?.profile?.givenName ?? "Amazing User"
+            let userName = user?.profile?.givenName ?? "Usuario Amazing"
             let imageProfile = user?.profile?.imageURL(withDimension: 320)?.absoluteString ?? ""
             
             self.username = userName
-            self.singUp(email: email, password: "", delegate: self)
+            self.singUp(user: userName, email: email, imageUrl: imageProfile, delegate: self)
         }
     }
     
     func handleNewUserSignIn(userName: String, email: String, imageUrl: String) {
-        let client = ClientRepository()
-        let newClient = Client(user: userName , visits: 0, imageUrl: imageUrl)
-        client.saveNewClient(userId: email, client: newClient)
-            
+        let repository = ClientRepository()
+        let client = Client(user: userName , visits: 0, imageUrl: imageUrl)
+        repository.saveNewClient(userId: email, client: client)
+        showProfileView(userEmail: email)
     }
     
     func isUserRegistered(email: String) -> Bool {
@@ -144,7 +147,7 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
             case .success(let client):
                 isUserRegistered = true
             case .failure(let error):
-                print(error.localizedDescription)
+                os_log("isUserRegistered: %@", log: self.log, type: .error, error.localizedDescription)
                 isUserRegistered = false
             }
         })
@@ -163,17 +166,22 @@ class LoginViewController: AuthenticationViewController, AuthDelegate {
 
 // AuthDelegate
 extension LoginViewController {
-    func onValidFields(email: String, password: String) {
+    
+    func onValidFields(user: String, email: String, password: String) {
         actvityLoader.startAnimating()
         doLogin(email: email, password: password)
     }
     
-    func onSuccessSignUp(email: String) {
-        if(!self.isUserRegistered(email: email)) {
-            self.handleNewUserSignIn(userName: self.username, email: email, imageUrl: "")
+    func onSuccessSignUp(user: String, email: String, imageUrl: String) {
+        if(self.isUserRegistered(email: email)) {
+            self.showProfileView(userEmail:email)
+        } else {
+            self.handleNewUserSignIn(userName: user, email: email, imageUrl: imageUrl)
         }
-        
-        self.showProfileView(userEmail:email)
+    }
+    
+    func onUserRegistered(email: String) {
+            self.showProfileView(userEmail:email)
         
     }
     
@@ -187,7 +195,7 @@ extension LoginViewController {
 extension LoginViewController: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: any Error) {
-        print("Login Failure!")
+        os_log("didCompleteWithError: %@", log: log, type: .error, error.localizedDescription)
     }
     
 }

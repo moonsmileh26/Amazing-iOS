@@ -26,7 +26,7 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
     var qrCodeImage: UIImage? = nil
     
     var user : User?
-    var userEmail : String?
+    var userEmail : String = ""
     
     var apiResult = UserModel()
     
@@ -62,7 +62,7 @@ class ProfileViewController: BaseViewController, QRCodeDelegate {
         let email = user?.email ?? userEmail
         print("Fetching user \(email)")
         let client = ClientRepository()
-        client.fetchClient(userId: email ?? "user@default.com", completionBlock: { [weak self] result in
+        client.fetchClient(userId: email, completionBlock: { [weak self] result in
             switch result {
             case .success(let client):
                 print("on Successful fetch")

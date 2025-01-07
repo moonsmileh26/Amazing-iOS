@@ -7,10 +7,14 @@
 
 import UIKit
 import FirebaseAuth
+import os
+import FirebaseCore
+import GoogleSignIn
 
 protocol AuthDelegate {
-    func onValidFields(email: String, password: String)
-    func onSuccessSignUp(email: String)
+    func onValidFields(user: String, email: String, password: String)
+    func onSuccessSignUp(user: String, email: String, imageUrl: String)
+    func onUserRegistered(email: String)
     func onFailedSignUp(message: String)
     
 }
@@ -19,6 +23,8 @@ class AuthenticationViewController: BaseViewController {
     
     @IBOutlet weak var actvityLoader: UIActivityIndicatorView!
     
+    let log = OSLog(subsystem: "AuthenticationViewController", category: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardDismissal()
@@ -26,18 +32,16 @@ class AuthenticationViewController: BaseViewController {
     
     func showProfileView(userEmail: String) {
         saveUserSession(userEmail: userEmail)
-
-        sleep(3)
         if let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
             
-            var user = Auth.auth().currentUser
+            let user = Auth.auth().currentUser
             if(user != nil) {
                 profileVC.user = Auth.auth().currentUser
-            } else {
-                profileVC.userEmail = userEmail
             }
+            profileVC.userEmail = userEmail
             
-            print("Authentication VC \(String(describing: user?.uid ?? userEmail))")
+            os_log("AuthenticationViewController#showProfileView: %@", log: self.log, type: .info, String(describing: user?.uid ?? userEmail))
+        
             
             self.modalPresentationStyle = .fullScreen
             self.present(profileVC, animated: true)
@@ -63,13 +67,7 @@ class AuthenticationViewController: BaseViewController {
         return password.count >= minPassword
     }
     
-    func validateUserField(user: String) {
-        if(user.isEmpty) {
-            self.showAlertMessage(message: "Ingresa todos los campos para continuar")
-        }
-    }
-    
-    func validateFields(email: String, password: String, delegate: AuthDelegate) {
+    func validateFields(user: String, email: String, password: String, delegate: AuthDelegate) {
         if(email.isEmpty || password.isEmpty) {
             self.showAlertMessage(message: "Ingresa todos los campos para continuar")
         } else if(!isValidEmail(email)){
@@ -77,24 +75,28 @@ class AuthenticationViewController: BaseViewController {
         } else if(!isValidPassword(password)){
             self.showAlertMessage(message: "Tu contraseña debe tener al menos 6 caracteres")
         } else {
-            delegate.onValidFields(email: email, password: password)
+            delegate.onValidFields(user: user, email: email, password: password)
         }
+        actvityLoader.stopAnimating()
     }
     
-    func singUp(email: String, password: String, delegate: AuthDelegate) {
+    func singUp(user: String, email: String, password: String = "123456", imageUrl: String, delegate: AuthDelegate) {
         
         actvityLoader.startAnimating()
-
-        let client = ClientRepository()
-
+        
+        
         Auth.auth().createUser(withEmail: email, password: password) { auth, error in
             
             if let error = error as? NSError {
                 let authError = AuthErrorCode(_nsError: error)
+                os_log("AuthenticationViewController#singUp: %@", log: self.log, type: .error, authError.localizedDescription)
+                
                 var errorMessage = ""
                 switch authError.code {
                 case .emailAlreadyInUse:
                     errorMessage = "El email ya se encuentra registrado"
+                    delegate.onUserRegistered(email: email)
+                    return
                     
                 case .invalidEmail:
                     errorMessage = "Revisa que sea un email valido"
@@ -106,7 +108,7 @@ class AuthenticationViewController: BaseViewController {
                 delegate.onFailedSignUp(message: errorMessage)
                 
             } else {
-                delegate.onSuccessSignUp(email: email)
+                delegate.onSuccessSignUp(user: user, email: email, imageUrl: imageUrl)
             }
         }
     }
